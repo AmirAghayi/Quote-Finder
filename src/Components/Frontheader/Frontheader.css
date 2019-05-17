@@ -1,0 +1,24 @@
+.frontheader{
+    background-color: black;
+    display: flex;
+}
+
+
+
+.Logo-icon {
+    height: 80px;
+    margin: 20px;
+}
+
+.nav ul{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.nav ul li{
+    color: aliceblue;
+    text-decoration: none;
+    list-style-type: none;
+}
+
