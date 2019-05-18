@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Logo from './image/Logo.png';
+import DrawerToggleButton from '../DrawerToggleButton/DrawerToggleButton';
+import Sidedrawer from '../Sidedrawer/Sidedrawer';
+import Backdrop from '../Backdrop/Backdrop';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
@@ -7,13 +10,42 @@ import './Navbar.css';
 
 class Navbar extends Component {
 
-
+     state = {
+          sideDrawerOpen: false
+        };
+            
+  
+  drawerToggleClickHandler = () => {
+       this.setState( (prevState) => {
+         return {
+           sideDrawerOpen: !prevState.sideDrawerOpen
+         };
+       });
+  };
+  
+  backdropClickHandler = () => {
+      this.setState({
+         sideDrawerOpen: false
+      });
+  };
 
 
 
 render (){
+     let backdrop;
+     let drawerClickHandler=this.drawerToggleClickHandler;
+
+  if(this.state.sideDrawerOpen){
+      backdrop = <Backdrop click={this.backdropClickHandler}/>
+  }
+
   return (
     <div className="navbar">
+          <section className="DrawerToggleButton">
+               <DrawerToggleButton click={drawerClickHandler}/>
+          </section>
+          <Sidedrawer show={this.state.sideDrawerOpen}/>
+         {backdrop}
          <section className="logo-nav">
                <div className="logo">
                     <img 
@@ -22,6 +54,10 @@ render (){
                     alt="Logo"
                     />
                </div>
+          </section>
+          
+          
+          <section>
                <div className="nav">
                     <ul>
                         <Link to="/"><li>Home</li></Link>

@@ -11,12 +11,11 @@ import './Homepage.css';
 class Homepage extends Component {
 
 
-
-
-
 render (){
+  
+
   return (
-    <div className="Homepage">
+    <div className="Homepage" style={{height: '100%'}}>
          <Navbar />
          <Frontbody />
          <Frontbottom />

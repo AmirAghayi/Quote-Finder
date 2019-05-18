@@ -1,14 +1,12 @@
 .navbar{
     background-color: black;
-}
-
-
-.logo-nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
+
+
 
 .Logo-icon {
     height: 60px;
@@ -38,5 +36,14 @@
    border-radius: 2px;
 }
 
+@media screen and (max-width: 800px){
+    .Logo-icon{
+        float: right;
+    }
+}
 
- 
+ @media screen and (max-width: 800px){
+      .nav{
+          display: none;
+      }
+ }
