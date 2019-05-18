@@ -117,7 +117,7 @@ class Registration extends Component {
             
   
             <div className="title">
-              <h1>Registeration</h1>
+              <h1>Registration</h1>
             </div>
   
             {/* {this.state.error ? (
@@ -128,9 +128,9 @@ class Registration extends Component {
   
 
            <div className="firstname">
-              <p className="first-name">First Name:</p>
               <input
                 className="first-name-input"
+                placeholder="First Name"
                 type="text"
                 value={this.state.firstName}
                 onChange={this.handleFirstnameChange}
@@ -138,9 +138,9 @@ class Registration extends Component {
             </div>
 
             <div className="lastname">
-              <p className="last-name">Last Name:</p>
               <input
                 className="last-name-input"
+                placeholder="Last Name"
                 type="text"
                 value={this.state.lastName}
                 onChange={this.handleLastnameChange}
@@ -148,9 +148,9 @@ class Registration extends Component {
             </div>
 
             <div className="email">
-              <p className="email-address">Email Address:</p>
               <input
                 className="email-input"
+                placeholder="Email Address"
                 type="text"
                 value={this.state.emailAddress}
                 onChange={this.handleEmailChange}
@@ -159,9 +159,9 @@ class Registration extends Component {
             
 
             <div className="phone">
-              <p className="phone-number">Phone Number:</p>
               <input
                 className="phone-input"
+                placeholder="Phone Number"
                 type="text"
                 value={this.state.phoneNumber}
                 onChange={this.handlePhoneChange}
@@ -171,9 +171,9 @@ class Registration extends Component {
             
 
             <div className="username">
-              <p className="username-title">Username:</p>
               <input
                 className="username-input"
+                placeholder="Username"
                 type="text"
                 value={this.state.username}
                 onChange={this.handleUsernameChange}
@@ -181,9 +181,9 @@ class Registration extends Component {
             </div>
   
             <div className="password">
-              <p className="password-title">Password:</p>
               <input
                 className="password-input"
+                placeholder="Password"
                 type="password"
                 value={this.state.password}
                 onChange={this.handlePasswordChange}
@@ -192,22 +192,24 @@ class Registration extends Component {
   
             <div className="buttons">
               <Link className="register-button" to="/" onClick={this.createUser}>
-                Register
+                <button>Register</button>
+              </Link>
+
+              <Link className="login-button" to="/Login">
+                  <button>Login</button>
               </Link>
             </div>
+
           </div>
         </div>
       );
     }
   }
   
-  function mapStateToProps(state) {
-    const { UsernameType } = state;
-    return {
-      UsernameType
-    };
-  }
   
+
+
+
   export default Registration;
   
 

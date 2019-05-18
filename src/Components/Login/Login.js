@@ -79,9 +79,9 @@ render (){
             </div>
 
             <div className="username">
-              <p className="username-title">Username:</p>
               <input
                 className="username-input"
+                placeholder="Username"
                 type="text"
                 value={this.state.username}
                 onChange={this.handleUsernameChange}
@@ -89,15 +89,15 @@ render (){
             </div>
   
             <div className="password">
-              <p className="password-title">Password:</p>
               <input
                 className="password-input"
+                placeholder="Password"
                 type="password"
                 value={this.state.password}
                 onChange={this.handlePasswordChange}
               />
             </div>
-            
+
             <button className="login-button" onClick={() => this.loginUser()}>
               Login
             </button>
