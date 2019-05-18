@@ -5,6 +5,66 @@ import './Login.css';
 
 
 class Login extends Component {
+      constructor() {
+        super();
+
+        this.state = {
+          username: "",
+          password: "",
+          error: "",
+          registerMessage: ""
+        };
+  }
+
+
+  handleUsernameChange = e => {
+    this.setState({
+      username: e.target.value
+    });
+  };
+
+
+
+  handlePasswordChange = e => {
+    this.setState({
+      password: e.target.value
+    });
+  };
+
+
+
+
+
+  // loginUser = () => {
+  //   const { username, password } = this.state;
+  //   const user = {
+  //     username,
+  //     password
+  //   };
+  //   this.setState({
+  //     error: ""
+  //   });
+  //   let validation = this.renderAlert();
+  //   if (validation) {
+  //     axios.post("/auth/login", user)
+  //       .then(response => {
+  //           console.log('response',response.data)
+  //         this.props.setUser(response.data.user.username);
+
+  //         this.props.history.push("/Dashboard");
+  //       })
+  //       .catch(err => {
+  //         console.log("this is error in login user", err);
+  //         this.setState({
+  //           error: {data:err.response.data.message}
+  //         });
+  //       });
+  //   } else {
+  //     this.setState({
+  //       error: { data: "Username and Password Required!" }
+  //     });
+  //   }
+  // };
 
 
 
@@ -13,8 +73,34 @@ class Login extends Component {
 render (){
   return (
     <div className="login">
-      <Navbar />
-          This is the Login Form!
+            <Navbar />
+            <div className="title">
+              <h1>Login</h1>
+            </div>
+
+            <div className="username">
+              <p className="username-title">Username:</p>
+              <input
+                className="username-input"
+                type="text"
+                value={this.state.username}
+                onChange={this.handleUsernameChange}
+              />
+            </div>
+  
+            <div className="password">
+              <p className="password-title">Password:</p>
+              <input
+                className="password-input"
+                type="password"
+                value={this.state.password}
+                onChange={this.handlePasswordChange}
+              />
+            </div>
+            
+            <button className="login-button" onClick={() => this.loginUser()}>
+              Login
+            </button>
     </div>
     
     )
