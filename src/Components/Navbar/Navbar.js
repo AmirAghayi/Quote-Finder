@@ -28,7 +28,7 @@ render (){
                         <Link to="/About"><li>About</li></Link>
                         <Link to="/Registration"><li>Register</li></Link>
                         <Link to="/Login"><li>Login</li></Link>
-                        <Link to="/Contact Us"><li className="contact">Contact us</li></Link>
+                        <Link to="/Contact Us"><li className="Contact">Contact us</li></Link>
                     </ul>
                 </div>
 

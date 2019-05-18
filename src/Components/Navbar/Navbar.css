@@ -2,6 +2,7 @@
     background-color: black;
 }
 
+
 .logo-nav{
     display: flex;
     flex-direction: row;
@@ -33,8 +34,9 @@
 
 
 .nav ul a:hover{
-   padding: 3px;
    background-color: rgb(78, 78, 78);
    border-radius: 2px;
 }
 
+
+ 
