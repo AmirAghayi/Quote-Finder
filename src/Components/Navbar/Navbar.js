@@ -60,7 +60,7 @@ render (){
           <section>
                <div className="nav">
                     <ul>
-                        <Link to="/"><li>Home</li></Link>
+                        <Link to="/Homepage"><li>Home</li></Link>
                         <Link to="/About"><li>About</li></Link>
                         <Link to="/"><li>Register</li></Link>
                         <Link to="/Login"><li>Login</li></Link>
