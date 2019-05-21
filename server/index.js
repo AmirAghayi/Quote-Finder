@@ -1,7 +1,6 @@
 const express = require ('express');
 const cors = require ('cors');
 const bodyParser = require ('body-parser');
-const massive = require ('massive');
 require ('dotenv').config({ path: __dirname + '/.env'});
 
 
@@ -19,13 +18,6 @@ let {
 } = process.env;
 
 
-
-massive(DB_CONNECTION_STRING, { scripts: __dirname + '/db' })
-.then((dbInstance) => {
-    app.set('db', dbInstance);
-}).catch(err => {
-    console.log(err)
-})
 
 
 
