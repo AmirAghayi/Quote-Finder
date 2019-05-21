@@ -1,0 +1,41 @@
+const express = require ('express');
+const cors = require ('cors');
+const bodyParser = require ('body-parser');
+const massive = require ('massive');
+require ('dotenv').config({ path: __dirname + '/.env'});
+
+
+
+
+const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
+
+
+let {
+    DB_CONNECTION_STRING,
+    PORT
+} = process.env;
+
+
+
+massive(DB_CONNECTION_STRING, { scripts: __dirname + '/db' })
+.then((dbInstance) => {
+    app.set('db', dbInstance);
+}).catch(err => {
+    console.log(err)
+})
+
+
+
+
+
+
+app.listen(PORT, () => {
+    console.log(`App is running on port ${PORT}` )
+})
+
+
+
+
