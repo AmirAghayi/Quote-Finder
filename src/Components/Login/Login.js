@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar/Navbar';
+import { Link } from 'react-router-dom';
+import Logo from '../Navbar/image/Logo.png';
 import './Login.css';
 
 
 
 class Login extends Component {
-      constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.state = {
-          username: "",
-          password: "",
-          error: "",
-          registerMessage: ""
-        };
+    this.state = {
+      username: "",
+      password: "",
+      error: "",
+      registerMessage: ""
+    };
   }
 
 
@@ -70,10 +71,17 @@ class Login extends Component {
 
 
 
-render (){
-  return (
-    <div className="login">
-            <Navbar />
+  render() {
+    return (
+      <div className="login">
+        <div className="Login-container">
+          <section className="login-form">
+            <Link to="/">
+              <img
+              className="logo-icon"
+              src={Logo}
+              alt="Logo" />
+              </Link>
             <div className="title">
               <h1>Login</h1>
             </div>
@@ -87,7 +95,7 @@ render (){
                 onChange={this.handleUsernameChange}
               />
             </div>
-  
+
             <div className="password">
               <input
                 className="password-input"
@@ -98,11 +106,14 @@ render (){
               />
             </div>
 
-            <button className="login-button" onClick={() => this.loginUser()}>
-              Login
-            </button>
-    </div>
-    
+            <Link to="/Homepage" className="login-btn">
+              <p className="Login-text">Login</p>
+            </Link>
+
+          </section>
+        </div>
+      </div>
+
     )
   }
 

@@ -1,0 +1,134 @@
+.auth{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-icon{
+    margin: 0px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    height: 100px;
+
+}
+
+
+.register-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 14px;
+    height: 600px;
+    width: 400px;
+    margin-left: 40%;
+    margin-top: 100px;
+    position: fixed;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.first-name-input{
+  padding: 0px 10px 0px 10px;
+  margin-bottom: 2px;
+  height: 34px;
+  width: 300px;
+  border-radius: 10px;
+  border-style: unset; 
+}
+
+.last-name-input{
+    padding: 0px 10px 0px 10px;
+  margin-bottom: 2px;
+  height: 34px;
+  width: 300px;
+  border-radius: 10px;
+  border-style: unset; 
+}
+
+.email-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+.phone-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+.username-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+.password-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+
+.register-button{
+    padding: 0px 10px 0px 10px;
+    margin-top: 80px;
+    margin-bottom: 4px;
+    height: 44px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: unset;
+    background-color: orange; 
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+.login-button{
+    padding: 0px 10px 0px 10px;
+    height: 44px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: unset;
+    background-color: orange;
+    color: black;
+    text-decoration: none;
+} 
+
+
+
+
+
+
+/* @media screen and (max-width: 1014px) {
+    register-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        border-radius: 300px;
+        height: 100px;
+        width: 150px;
+        margin-left: 10%;
+    }
+    
+} */

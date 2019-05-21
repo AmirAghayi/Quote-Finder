@@ -9,9 +9,9 @@ import { Switch, Route } from 'react-router-dom';
 
 export default (
     <Switch>
-        <Route component={Homepage} exact path="/"/>
+        <Route component={Registration} exact path="/"/>
         <Route component={About} path="/About" />
-        <Route component={Registration} path="/Registration" />
+        <Route component={Homepage} path="/Homepage" />
         <Route component={Login} path="/Login" />
         <Route component={Contact} path="/Contact Us" />
     </Switch>

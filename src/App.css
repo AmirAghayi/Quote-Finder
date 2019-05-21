@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-image: url(./image/background.jpg);
+  background-image: linear-gradient(to right, rgb(150, 150, 150) , rgb(253, 253, 253));
   background-size: cover;
   background-position: center;
 }
