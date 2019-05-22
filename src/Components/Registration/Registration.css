@@ -22,7 +22,7 @@
     height: 600px;
     width: 400px;
     margin-left: 40%;
-    margin-top: 100px;
+    margin-top: 60px;
     position: fixed;
 }
 
@@ -118,17 +118,230 @@
 
 
 
-/* @media screen and (max-width: 1014px) {
-    register-form {
+@media screen and (max-width: 1300px) {
+    
+    .register-form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         background-color: black;
-        border-radius: 300px;
-        height: 100px;
-        width: 150px;
-        margin-left: 10%;
+        border-radius: 14px;
+        height: 530px;
+        width: 350px;
+        margin-left: 36%;
+        margin-top: 30px;
+        position: fixed;
     }
     
-} */
+
+    
+    .buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.first-name-input{
+  padding: 0px 10px 0px 10px;
+  margin-bottom: 2px;
+  height: 34px;
+  width: 250px;
+  border-radius: 10px;
+  border-style: unset; 
+}
+
+.last-name-input{
+    padding: 0px 10px 0px 10px;
+  margin-bottom: 2px;
+  height: 34px;
+  width: 250px;
+  border-radius: 10px;
+  border-style: unset; 
+}
+
+.email-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 250px;    
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+.phone-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 250px;    
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+.username-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 250px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+.password-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 250px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+
+.register-button{
+    padding: 0px 10px 0px 10px;
+    margin-top: 30px;
+    margin-bottom: 4px;
+    height: 44px;
+    width: 250px;
+    border-radius: 10px;
+    border-style: unset;
+    background-color: orange; 
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+.login-button{
+    padding: 0px 10px 0px 10px;
+    height: 44px;
+    width: 250px;
+    border-radius: 10px;
+    border-style: unset;
+    background-color: orange;
+    color: black;
+    text-decoration: none;
+} 
+
+
+} 
+
+
+
+
+
+
+@media screen and (max-width: 320px) {
+    
+    .register-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        border-radius: 14px;
+        height: 430px;
+        width: 250px;
+        margin-left: 10%;
+        margin-top: 30px;
+        position: fixed;
+    }
+    
+
+    
+    .buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.first-name-input{
+  padding: 0px 10px 0px 10px;
+  margin-bottom: 2px;
+  height: 26px;
+  width: 150px;
+  border-radius: 10px;
+  border-style: unset; 
+}
+
+.last-name-input{
+    padding: 0px 10px 0px 10px;
+  margin-bottom: 2px;
+  height: 26px;
+  width: 150px;
+  border-radius: 10px;
+  border-style: unset; 
+}
+
+.email-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 26px;
+    width: 150px;    
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+.phone-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 26px;
+    width: 150px;    
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+.username-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 26px;
+    width: 150px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+.password-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 26px;
+    width: 150px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+
+.register-button{
+    padding: 0px 10px 0px 10px;
+    margin-top: 30px;
+    margin-bottom: 4px;
+    height: 26px;
+    width: 150px;
+    border-radius: 10px;
+    border-style: unset;
+    background-color: orange; 
+    color: black;
+    text-decoration: none;
+    font-size: 9px;
+}
+
+
+
+
+.login-button{
+    padding: 0px 10px 0px 10px;
+    height: 26px;
+    width: 150px;
+    border-radius: 10px;
+    border-style: unset;
+    background-color: orange;
+    color: black;
+    text-decoration: none;
+    font-size: 9px;
+} 
+
+
+} 
+
+
+
+
+
