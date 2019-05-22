@@ -6,11 +6,13 @@
     align-items: center;
 }
 
-
+.logo-nav{
+    margin-right: auto;
+}
 
 .Logo-icon {
     height: 60px;
-    margin: 10px 10px 10px 60px;
+    margin: 10px 40px 10px 60px;
 }
 
 .nav ul{
@@ -37,8 +39,8 @@
 }
 
 @media screen and (max-width: 800px){
-    .Logo-icon{
-        float: right;
+    .logo-nav{
+        margin-left: auto;
     }
 }
 

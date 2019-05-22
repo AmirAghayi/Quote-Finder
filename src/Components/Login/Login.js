@@ -88,7 +88,7 @@ class Login extends Component {
 
             <div className="username">
               <input
-                className="username-input"
+                className="login-username-input"
                 placeholder="Username"
                 type="text"
                 value={this.state.username}
@@ -98,7 +98,7 @@ class Login extends Component {
 
             <div className="password">
               <input
-                className="password-input"
+                className="login-password-input"
                 placeholder="Password"
                 type="password"
                 value={this.state.password}

@@ -30,6 +30,26 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.login-username-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+
+.login-password-input{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 2px;
+    height: 34px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: unset; 
+}
+
+
 .login-btn{
     padding: 0px 10px 0px 10px;
     height: 44px;
@@ -40,4 +60,120 @@
     color: black;
     margin-top: 20px;
     text-decoration: none;
+}
+
+
+
+
+@media screen and (max-width:1300px) {
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        border-radius: 14px;
+        height: 400px;
+        width: 400px;
+        margin-left: 35%;
+        margin-top: 50px;
+        position: fixed;
+    }
+    
+    
+    
+    .logo-icon{
+        margin: 0px;
+        margin-bottom: 10px;
+        margin-right: 20px;
+        height:100px;
+    }
+    
+    .title h1{
+        color: aliceblue;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .login-username-input{
+        height: 44px;
+        width: 300px;
+    }
+
+    .login-password-input{
+        height: 44px;
+        width: 300px;
+    }
+
+
+
+    .login-btn{
+        padding: 0px 10px 0px 10px;
+        height: 44px;
+        width: 300px;
+        border-radius: 10px;
+        border-style: unset;
+        background-color: orange; 
+        color: black;
+        margin-top: 20px;
+        text-decoration: none;
+    }
+    
+}
+
+
+
+@media screen and (max-width:400px) {
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        border-radius: 14px;
+        height: 400px;
+        width: 270px;
+        margin-left: 12%;
+        margin-top: 50px;
+        position: fixed;
+    }
+    
+    
+    
+    .logo-icon{
+        margin: 0px;
+        margin-bottom: 10px;
+        margin-right: 20px;
+        height:80px;
+    }
+    
+    .title h1{
+        color: aliceblue;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .login-username-input{
+        height: 32px;
+        width: 200px;
+    }
+
+    .login-password-input{
+        height: 32px;
+        width: 200px;
+    }
+
+
+
+    .login-btn{
+        padding: 0px 10px 0px 10px;
+        height: 32px;
+        width: 200px;
+        border-radius: 10px;
+        border-style: unset;
+        background-color: orange; 
+        color: black;
+        margin-top: 20px;
+        text-decoration: none;
+        font-size: 12px;
+    }
+    
 }
