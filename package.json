@@ -5,6 +5,8 @@
   "main": "server/index.js",
   "proxy": "http://localhost:4000",
   "dependencies": {
+    "@sweetalert/with-react": "^0.1.1",
+    "axios": "^0.18.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
@@ -15,7 +17,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

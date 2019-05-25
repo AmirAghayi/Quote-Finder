@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import axios from "axios";
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 import Logo from '../Navbar/image/Logo.png';
 import './Registration.css';
 
@@ -17,7 +19,7 @@ class Registration extends Component {
       username: "",
       password: "",
       error: "",
-      registerMessage: ""
+      registerMessage: "",
     };
   }
 
@@ -59,51 +61,64 @@ class Registration extends Component {
     });
   };
 
-  // resetState = () => {
-  //   this.setState({
-  //     username: "",
-  //     password: ""
-  //   });
-  // };
+  resetState = () => {
+    this.setState({
+      firstName: "",
+      lastName: "",
+      emailAddress: "",
+      phoneNumber: "",
+      username: "",
+      password: "",
+      error: "",
+      registerMessage: "",
+    });
+  };
 
 
 
 
-  // createUser = () => {
-  //   const { username, password } = this.state;
-  //   const user = {
-  //     username,
-  //     password
-  //   };
-  //   this.setState({
-  //     error: ""
-  //   });
-  //   let validation = this.renderAlert();
-  //   if (validation) {
-  //     axios.post("/auth/register", user).then(response => {
-  //       console.log(response.data);
-  //       this.props.history.push("/");
-  //       this.resetState();
-  //     });
-  //     this.resetState();
-  //     this.setState({
-  //       registerMessage: "Registered Successfully!"
-  //     });
-  //   } else {
-  //     this.setState({
-  //       error: { data: "Username and Password Required!" }
-  //     });
-  //   }
-  // };
+  createUser = () => {
+    const {firstName,lastName,emailAddress,phoneNumber,username,password} = this.state;
+    const user = {
+      firstName,
+      lastName,
+      emailAddress,
+      phoneNumber,
+      username,
+      password
+    };
+    this.setState({
+      error: ""
+    });
+    let validation = this.renderAlert();
+    if (validation) {
+      axios.post("/register", user).then(response => {
+        console.log(response.data);
+        this.props.history.push("/");
+        this.resetState();
+      });
+      this.resetState();
+      this.setState({
+        registerMessage: swal("Registered Successfully!","Quote Finder","success")
+      });
+    } else {
+      this.setState({
+        error: swal("Error","Fill out ALL the required fields", "warning")
+      });
+    }
+  };
 
 
 
 
-  // renderAlert = () => {
-  //   return this.state.username === "" || this.state.password === ""
-  //     ? false
-  //     : true;
-  // };
+  renderAlert = () => {
+    return this.state.firstName === "" ||
+    this.state.lastName === "" ||
+    this.state.emailAddress === "" ||
+    this.state.phoneNumber === "" ||
+    this.state.username === "" || 
+    this.state.password === ""  ? false  : true;
+  };
 
 
 
@@ -119,7 +134,7 @@ class Registration extends Component {
           {/* {this.state.error ? (
               <p className="error-message">{this.state.error.data}</p>
             ) : (
-              <p>{this.state.registerMessage}</p>
+              <p className="register-message">{this.state.registerMessage}</p>
             )} */}
 
           <section className="register-form">

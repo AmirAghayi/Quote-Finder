@@ -9,10 +9,15 @@ import './Navbar.css';
 
 
 class Navbar extends Component {
+     constructor() {
+          super();
+      
+          this.state = {
+              sideDrawerOpen: false,
+              profilePicture: ""      
+          };
+        }
 
-     state = {
-          sideDrawerOpen: false
-        };
             
   
   drawerToggleClickHandler = () => {
@@ -23,6 +28,8 @@ class Navbar extends Component {
        });
   };
   
+
+
   backdropClickHandler = () => {
       this.setState({
          sideDrawerOpen: false
@@ -63,8 +70,8 @@ render (){
                         <Link to="/Homepage"><li>Home</li></Link>
                         <Link to="/About"><li>About</li></Link>
                         <Link to="/"><li>Register</li></Link>
-                        <Link to="/Login"><li>Login</li></Link>
-                        <Link to="/Contact Us"><li className="Contact">Contact us</li></Link>
+                        <Link to="/Contact Us" className="Contact"><li>Contact us</li></Link>
+                        <Link to="/"><li>Log Out</li></Link>
                     </ul>
                 </div>
 
