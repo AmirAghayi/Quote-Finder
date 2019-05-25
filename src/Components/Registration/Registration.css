@@ -4,15 +4,10 @@
 }
 
 
-.error-message{
-   color: red;
+.swal-button--confirm{
+    background-color: orange;
+    color: black;
 }
-
-.register-message{
-
-}
-
-
 
 
 
