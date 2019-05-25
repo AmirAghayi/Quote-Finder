@@ -4,8 +4,7 @@ INSERT INTO "Users" (
     email_address,
     phone_number,
     username,
-    password,
-    profile_pic
+    password
  )
  VALUES
- ($1, $2, $3, $4, $5, $6, $7);
+ ($1, $2, $3, $4, $5, $6);

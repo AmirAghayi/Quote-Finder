@@ -2,6 +2,15 @@
     margin: 0%;
 }
 
+.Login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
 .login-form{
     display: flex;
     flex-direction: column;
@@ -11,9 +20,6 @@
     border-radius: 14px;
     height: 400px;
     width: 400px;
-    margin-left: 40%;
-    margin-top: 150px;
-    position: fixed;
 }
 
 
@@ -66,6 +72,8 @@
 
 
 @media screen and (max-width:1300px) {
+    
+
     .login-form{
         display: flex;
         flex-direction: column;
@@ -75,9 +83,6 @@
         border-radius: 14px;
         height: 400px;
         width: 400px;
-        margin-left: 35%;
-        margin-top: 50px;
-        position: fixed;
     }
     
     
@@ -123,6 +128,7 @@
 
 
 @media screen and (max-width:400px) {
+
     .login-form{
         display: flex;
         flex-direction: column;
@@ -132,9 +138,6 @@
         border-radius: 14px;
         height: 400px;
         width: 270px;
-        margin-left: 12%;
-        margin-top: 50px;
-        position: fixed;
     }
     
     

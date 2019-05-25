@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import axios from "axios";
 import { Link } from 'react-router-dom';
 import Logo from '../Navbar/image/Logo.png';
+import swal from 'sweetalert';
 import './Login.css';
 
 
@@ -13,7 +15,6 @@ class Login extends Component {
       username: "",
       password: "",
       error: "",
-      registerMessage: ""
     };
   }
 
@@ -33,41 +34,51 @@ class Login extends Component {
   };
 
 
+  resetState = () => {
+    this.setState({
+      username: "",
+      password: "",
+      error: ""
+    });
+  };
 
 
 
-  // loginUser = () => {
-  //   const { username, password } = this.state;
-  //   const user = {
-  //     username,
-  //     password
-  //   };
-  //   this.setState({
-  //     error: ""
-  //   });
-  //   let validation = this.renderAlert();
-  //   if (validation) {
-  //     axios.post("/auth/login", user)
-  //       .then(response => {
-  //           console.log('response',response.data)
-  //         this.props.setUser(response.data.user.username);
+  loginUser = () => {
+    const { username, password } = this.state;
+    const user = {
+      username,
+      password
+    };
+    this.setState({
+      error: ""
+    });
+    let validation = this.renderAlert();
+    if (validation) {
+      axios.post("/login", user)
+        .then(response => {
+            console.log('response',response.data)
+          this.props.setUser(response.data.user.username);
 
-  //         this.props.history.push("/Dashboard");
-  //       })
-  //       .catch(err => {
-  //         console.log("this is error in login user", err);
-  //         this.setState({
-  //           error: {data:err.response.data.message}
-  //         });
-  //       });
-  //   } else {
-  //     this.setState({
-  //       error: { data: "Username and Password Required!" }
-  //     });
-  //   }
-  // };
+          this.props.history.push("/Homepage");
+        })
+        .catch(err => {
+          console.log("this is error in login user", err);
+          this.setState({
+            error: {data:err.response.data.message}
+          });
+        });
+    } else {
+      this.setState({
+        error: swal("Error","username or password missing", "warning")
+      });
+    }
+  };
 
 
+  renderAlert = () => {
+    return this.state.username === "" || this.state.password === ""  ? false : true;
+  };
 
 
 
@@ -106,7 +117,7 @@ class Login extends Component {
               />
             </div>
 
-            <Link to="/Homepage" className="login-btn">
+            <Link className="login-btn" onClick={this.loginUser}>
               <p className="Login-text">Login</p>
             </Link>
 

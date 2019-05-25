@@ -96,11 +96,14 @@ class Registration extends Component {
         console.log(response.data);
         this.props.history.push("/");
         this.resetState();
-      });
-      this.resetState();
-      this.setState({
-        registerMessage: swal("Registered Successfully!","Quote Finder","success")
-      });
+        this.setState({
+          registerMessage: swal("Registered Successfully!","Quote Finder","success")
+        });
+      }).catch((err) => {
+        console.log('creating failed!')
+      })
+      
+      
     } else {
       this.setState({
         error: swal("Error","Fill out ALL the required fields!", "warning")
