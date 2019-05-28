@@ -6,6 +6,7 @@ const massive = require ('massive');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcrypt');
 
 
 
@@ -30,13 +31,13 @@ passport.use('register', new LocalStrategy({
     passReqToCallback: true,
 }, (req, username, password, done) => {
     const db = app.get('db');
-    const { email } = req.body;
+    const { emailAddress } = req.body;
 
     db.query(`
         select * from "Users"
-        where email ilike \${email}
+        where email_address ilike \${emailAddress}
             OR username ilike \${username}
-    `, { username, email })
+    `, { username, emailAddress })
         .then(users => {
             if (users.length > 0) {
                 return done('Username or email is already in use');
@@ -46,7 +47,7 @@ passport.use('register', new LocalStrategy({
                 if (err) {
                     return done('System failure');
                 }
-
+                console.log(req.body, 'this is req.body')
                 db.Users.insert({
                     ...req.body,
                     password: hashedPassword,
