@@ -2,27 +2,25 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+// import Icon from 'react-vector-icons/FontAwesome';
 import Logo from '../Navbar/image/Logo.png';
 import './Registration.css';
 
 
 
 class Registration extends Component {
-  constructor() {
-    super();
+  // static foo = 'bar';
 
-    this.state = {
-      firstName: "",
-      lastName: "",
-      emailAddress: "",
-      phoneNumber: "",
-      username: "",
-      password: "",
-      error: "",
-      registerMessage: "",
-    };
-  }
-
+  state = {
+    firstName: "",
+    lastName: "",
+    emailAddress: "",
+    phoneNumber: "",
+    username: "",
+    password: "",
+    error: "",
+    registerMessage: "",
+  };
 
   handleFirstnameChange = e => {
     this.setState({
@@ -78,7 +76,7 @@ class Registration extends Component {
 
 
   createUser = () => {
-    const {firstName,lastName,emailAddress,phoneNumber,username,password} = this.state;
+    const { firstName, lastName, emailAddress, phoneNumber, username, password } = this.state;
     const user = {
       firstName,
       lastName,
@@ -92,21 +90,22 @@ class Registration extends Component {
     });
     let validation = this.renderAlert();
     if (validation) {
-      axios.post("/register", user).then(response => {
-        console.log(response.data);
-        this.props.history.push("/");
-        this.resetState();
-        this.setState({
-          registerMessage: swal("Registered Successfully!","Quote Finder","success")
-        });
-      }).catch((err) => {
-        console.log('creating failed!')
-      })
-      
-      
+      axios.post("/register", user)
+        .then(response => {
+          console.log(response.data);
+          this.props.history.push("/");
+          this.resetState();
+          this.setState({
+            registerMessage: swal("Registered Successfully!", "Quote Finder", "success")
+          });
+        }).catch((err) => {
+          console.log('creating failed!')
+        })
+
+
     } else {
       this.setState({
-        error: swal("Error","Fill out ALL the required fields!", "warning")
+        error: swal("Error", "Fill out ALL the required fields!", "warning")
       });
     }
   };
@@ -116,11 +115,11 @@ class Registration extends Component {
 
   renderAlert = () => {
     return this.state.firstName === "" ||
-    this.state.lastName === "" ||
-    this.state.emailAddress === "" ||
-    this.state.phoneNumber === "" ||
-    this.state.username === "" || 
-    this.state.password === ""  ? false  : true;
+      this.state.lastName === "" ||
+      this.state.emailAddress === "" ||
+      this.state.phoneNumber === "" ||
+      this.state.username === "" ||
+      this.state.password === "" ? false : true;
   };
 
 
@@ -199,6 +198,7 @@ class Registration extends Component {
             </div>
 
             <div className="password">
+            
               <input
                 className="password-input"
                 placeholder="Password"
@@ -228,9 +228,6 @@ class Registration extends Component {
     );
   }
 }
-
-
-
 
 
 export default Registration;
