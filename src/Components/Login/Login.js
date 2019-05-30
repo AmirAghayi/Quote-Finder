@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import Logo from '../Navbar/image/Logo.png';
 import swal from 'sweetalert';
+import { connect } from 'react-redux';
+import { setUser} from '../../redux/reducer';  
 import './Login.css';
 
 
@@ -64,9 +66,10 @@ class Login extends Component {
         })
         .catch(err => {
           console.log("this is error in login user", err);
-          this.setState({
-            error: {data:err.response.data.message}
-          });
+          console.log('creating failed!')
+          this.setState({ 
+            registerMessage: swal("Username or password is wrong!", "Quote Finder", "warning")
+          })
         });
     } else {
       this.setState({
@@ -117,9 +120,9 @@ class Login extends Component {
               />
             </div>
 
-            <Link className="login-btn" onClick={this.loginUser}>
+            <button className="login-btn" onClick={this.loginUser}>
               <p className="Login-text">Login</p>
-            </Link>
+            </button>
 
           </section>
         </div>
@@ -130,7 +133,9 @@ class Login extends Component {
 
 }
 
+function mapStateToProps(state){
+    return state;
+}
 
 
-
-export default Login;
+export default connect(mapStateToProps, {setUser})(Login);

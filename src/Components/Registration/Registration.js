@@ -94,10 +94,7 @@ class Registration extends Component {
     if (validation) {
       axios.post("/register", user)
         .then(response => {
-          console.log(response.data.message, 'this is response message');
-          response.data.message === 'Username or email is already in use'  ?  this.setState({ 
-            registerMessage: swal("Username or email is already in use!", "Quote Finder", "warning")
-               })    :  
+          
           this.props.history.push("/");
           this.resetState();
           this.setState({
@@ -105,6 +102,9 @@ class Registration extends Component {
           });
         }).catch((err) => {
           console.log('creating failed!')
+          this.setState({ 
+            registerMessage: swal("Username or email is already in use!", "Quote Finder", "warning")
+          })
         })
 
 

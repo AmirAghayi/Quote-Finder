@@ -75,12 +75,10 @@ passport.use('register', new LocalStrategy({
 );
 
 
-passport.use('login', new LocalStrategy({ 
-    usernameField: 'emailAddress' 
-}, (emailAddress, password, done) => {
+passport.use('login', new LocalStrategy((username, password, done) => {
     const db = app.get('db');
 
-    db.Users.find({ email_address: emailAddress })
+    db.Users.find({ username })
         .then(users => {
             if (users.length == 0) {
                 return done('Username or password is incorrect');
@@ -148,15 +146,20 @@ app.use(passport.session());
 
 
 
-app.post('/register', passport.authenticate('register'), (req, res) => {
+app.post('/register', passport.authenticate('register', { failWithError: true }), (req, res) => {
     res.send({ message: 'Successfully registered', user: req.user });
-}
+}, (err, req, res, next) => {
+      
+  }
 );
 
 
 app.post('/login', passport.authenticate('login'), (req, res) => {
     res.send({ message: 'Successfully logged in', user: req.user });
-});
+}, (err, req, res, next ) => {
+
+}
+);
 
 
 
