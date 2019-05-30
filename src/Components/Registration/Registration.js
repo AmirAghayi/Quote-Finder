@@ -2,25 +2,27 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
-// import Icon from 'react-vector-icons/FontAwesome';
 import Logo from '../Navbar/image/Logo.png';
 import './Registration.css';
 
 
 
 class Registration extends Component {
-  // static foo = 'bar';
+          constructor() {
+            super();
 
-  state = {
-    firstName: "",
-    lastName: "",
-    emailAddress: "",
-    phoneNumber: "",
-    username: "",
-    password: "",
-    error: "",
-    registerMessage: "",
-  };
+            this.state = {
+              firstName: "",
+              lastName: "",
+              emailAddress: "",
+              phoneNumber: "",
+              username: "",
+              password: "",
+              error: "",
+              registerMessage: "",
+            };
+          }
+
 
   handleFirstnameChange = e => {
     this.setState({
@@ -92,7 +94,10 @@ class Registration extends Component {
     if (validation) {
       axios.post("/register", user)
         .then(response => {
-          console.log(response.data);
+          console.log(response.data.message, 'this is response message');
+          response.data.message === 'Username or email is already in use'  ?  this.setState({ 
+            registerMessage: swal("Username or email is already in use!", "Quote Finder", "warning")
+               })    :  
           this.props.history.push("/");
           this.resetState();
           this.setState({
@@ -198,7 +203,7 @@ class Registration extends Component {
             </div>
 
             <div className="password">
-            
+
               <input
                 className="password-input"
                 placeholder="Password"
