@@ -162,6 +162,10 @@ app.post('/login', passport.authenticate('login'), (req, res) => {
 );
 
 
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.sendStatus(200);
+});
 
 
 

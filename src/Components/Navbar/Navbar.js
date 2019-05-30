@@ -4,6 +4,9 @@ import DrawerToggleButton from '../DrawerToggleButton/DrawerToggleButton';
 import Sidedrawer from '../Sidedrawer/Sidedrawer';
 import Backdrop from '../Backdrop/Backdrop';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { setUser} from '../../redux/reducer';  
 import './Navbar.css';
 
 
@@ -18,8 +21,8 @@ class Navbar extends Component {
           };
         }
 
-            
-  
+          
+
   drawerToggleClickHandler = () => {
        this.setState( (prevState) => {
          return {
@@ -71,7 +74,19 @@ render (){
                         <Link to="/About"><li>About</li></Link>
                         <Link to="/"><li>Register</li></Link>
                         <Link to="/Contact Us" className="Contact"><li>Contact us</li></Link>
-                        <Link to="/"><li>Log Out</li></Link>
+                        <a href="javascript:void(0)" onClick={() => {
+                                axios.get('/logout')
+                                   .then(() => {
+                                      this.props.setUser('');
+                                      this.props.history.push('/');
+                                   }) .catch(err => {
+                                   console.warn(err);
+                                });
+                        }}><li>Log Out</li></a>
+                             
+                             
+                             
+                        <li>{this.props.username}</li>
                     </ul>
                 </div>
 
@@ -88,7 +103,9 @@ render (){
 
 }
 
+function mapStateToProps(state){
+      return state;
+}
 
 
-
-export default Navbar;
+export default connect(mapStateToProps, {setUser})(Navbar);

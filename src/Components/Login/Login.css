@@ -26,7 +26,6 @@
 
 .logo-icon{
     margin: 0px;
-    margin-bottom: 30px;
     margin-right: 20px;
     height:100px;
 }
@@ -39,7 +38,7 @@
 .login-username-input{
     padding: 0px 10px 0px 10px;
     margin-bottom: 2px;
-    height: 34px;
+    height: 44px;
     width: 300px;
     border-radius: 10px;
     border-style: unset; 
@@ -49,7 +48,7 @@
 .login-password-input{
     padding: 0px 10px 0px 10px;
     margin-bottom: 2px;
-    height: 34px;
+    height: 44px;
     width: 300px;
     border-radius: 10px;
     border-style: unset; 
@@ -59,7 +58,7 @@
 .login-btn{
     padding: 0px 10px 0px 10px;
     height: 44px;
-    width: 300px;
+    width: 319px;
     border-radius: 10px;
     border-style: unset;
     background-color: orange; 
@@ -69,6 +68,13 @@
 }
 
 
+.login-btn a:hover{
+    cursor: pointer;
+}
+
+.Login-text{
+    font-size: 14px;
+}
 
 
 @media screen and (max-width:1300px) {
@@ -89,7 +95,6 @@
     
     .logo-icon{
         margin: 0px;
-        margin-bottom: 10px;
         margin-right: 20px;
         height:100px;
     }
@@ -114,13 +119,21 @@
     .login-btn{
         padding: 0px 10px 0px 10px;
         height: 44px;
-        width: 300px;
+        width: 319px;
         border-radius: 10px;
         border-style: unset;
         background-color: orange; 
         color: black;
         margin-top: 20px;
         text-decoration: none;
+    }
+    
+    .login-btn a:hover{
+        cursor: pointer;
+    }
+    
+    .Login-text{
+        font-size: 14px;
     }
     
 }
@@ -144,7 +157,6 @@
     
     .logo-icon{
         margin: 0px;
-        margin-bottom: 10px;
         margin-right: 20px;
         height:80px;
     }
@@ -169,7 +181,7 @@
     .login-btn{
         padding: 0px 10px 0px 10px;
         height: 32px;
-        width: 200px;
+        width: 250px;
         border-radius: 10px;
         border-style: unset;
         background-color: orange; 
@@ -179,4 +191,11 @@
         font-size: 12px;
     }
     
+    .login-btn a:hover{
+        cursor: pointer;
+    }
+    
+    .Login-text{
+        font-size: 14px;
+    }
 }
