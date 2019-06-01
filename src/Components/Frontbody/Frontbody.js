@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Frontbody.css';
 
 
 
@@ -13,7 +14,10 @@ render (){
     <div>
       {this.props.quotes.length > 0 ? this.props.quotes.map((quote) => (
         <div className="quotes"> 
-          {quote.body}
+          <h1>{quote.body}</h1>
+            <div className="author">
+            <h2>"{quote.author}"</h2>
+            </div>
         </div>
       )) : null}
           

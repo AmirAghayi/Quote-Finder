@@ -41,7 +41,7 @@ render (){
 
   return (
     <div className="Homepage" style={{height: '100%'}}>
-         <Frontbody quotes={this.state.quotesList}/>
+         <Frontbody className="quote-card-container" quotes={this.state.quotesList}/>
          <Frontbottom />
          <Footer />
     </div>
