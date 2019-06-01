@@ -134,6 +134,7 @@ class Login extends Component {
 }
 
 function mapStateToProps(state){
+  console.log('this is redux store', state)
     return state;
 }
 

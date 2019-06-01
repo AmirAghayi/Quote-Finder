@@ -169,6 +169,14 @@ app.get('/logout', (req, res) => {
 
 
 
+app.get('/api/quotes', (req, res) => {
+    res.send(req.quotes);
+})
+
+
+
+
+
 let {
     DB_CONNECTION_STRING,
     PORT

@@ -4,17 +4,25 @@ import About from './Components/About/About';
 import Registration from './Components/Registration/Registration';
 import Login from './Components/Login/Login';
 import Contact from './Components/Contact/Contact';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Navbar from './Components/Navbar/Navbar';
+
+
+
 
 
 export default (
-    <Switch>
-        <Route component={Registration} exact path="/"/>
-        <Route component={About} path="/About" />
-        <Route component={Homepage} path="/Homepage" />
-        <Route component={Login} path="/Login" />
-        <Route component={Contact} path="/Contact Us" />
-    </Switch>
+    <div>
+        <Route component={Navbar} path="/Homepage"/>
+        <Switch>
+            <Route component={Registration} exact path="/"/>
+            <Route component={About} path="/About" />
+            <Route component={Homepage} path="/Homepage" />
+            <Route component={Login} path="/Login" />
+            <Route component={Contact} path="/Contact Us" />
+        </Switch>
+    </div>
+   
 
 
 

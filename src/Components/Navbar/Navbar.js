@@ -12,12 +12,13 @@ import './Navbar.css';
 
 
 class Navbar extends Component {
-     constructor() {
-          super();
+     constructor(props) {
+          super(props);
       
           this.state = {
               sideDrawerOpen: false,
-              profilePicture: ""      
+              profilePicture: "",
+              user: ""      
           };
         }
 
@@ -42,6 +43,7 @@ class Navbar extends Component {
 
 
 render (){
+     console.log(this.props)
      let backdrop;
      let drawerClickHandler=this.drawerToggleClickHandler;
 
@@ -72,11 +74,14 @@ render (){
                     <ul>
                         <Link to="/Homepage"><li>Home</li></Link>
                         <Link to="/About"><li>About</li></Link>
-                        <Link to="/"><li>Register</li></Link>
+                        <Link to="/Homepage"><li>Topics</li></Link>
+                        <Link to="/Homepage"><li>Authors</li></Link>
+                        <Link to="/Homepage"><li>Submit a Quote</li></Link>
                         <Link to="/Contact Us" className="Contact"><li>Contact us</li></Link>
                         <a href="javascript:void(0)" onClick={() => {
                                 axios.get('/logout')
                                    .then(() => {
+                                        console.log(this.props)
                                       this.props.setUser('');
                                       this.props.history.push('/');
                                    }) .catch(err => {
@@ -86,7 +91,7 @@ render (){
                              
                              
                              
-                        <li>{this.props.username}</li>
+                        <li>{this.props.user}</li>
                     </ul>
                 </div>
 
@@ -104,7 +109,9 @@ render (){
 }
 
 function mapStateToProps(state){
-      return state;
+      return {
+           user: state.user
+      };
 }
 
 

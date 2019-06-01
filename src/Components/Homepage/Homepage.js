@@ -10,8 +10,8 @@ import './Homepage.css';
 
 
 class Homepage extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     this.state = {
        quotesList: []
@@ -26,10 +26,11 @@ componentDidMount(){
 
 
 getQuotes = () => {
-   axios.get('api/quotes')
+   axios.get('https://favqs.com/api/quotes', { headers: {Authorization: `Token token="7e1cd958d0d8cfebace9c3d0e5c146e9"`}})
    .then(response => {
+     console.log(response)
      this.setState({
-       quotesList: response.data
+       quotesList: response.data.quotes
      })
    })
 }
@@ -40,8 +41,7 @@ render (){
 
   return (
     <div className="Homepage" style={{height: '100%'}}>
-         <Navbar />
-         <Frontbody />
+         <Frontbody quotes={this.state.quotesList}/>
          <Frontbottom />
          <Footer />
     </div>
