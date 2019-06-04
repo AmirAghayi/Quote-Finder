@@ -4,6 +4,7 @@ import About from './Components/About/About';
 import Registration from './Components/Registration/Registration';
 import Login from './Components/Login/Login';
 import Contact from './Components/Contact/Contact';
+import PostDetails from './Components/PostDetails/Postdetails';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 
@@ -20,6 +21,7 @@ export default (
             <Route component={Homepage} path="/Homepage" />
             <Route component={Login} path="/Login" />
             <Route component={Contact} path="/Contact Us" />
+            <Route component={PostDetails} path="/post/:id" />
         </Switch>
     </div>
    
