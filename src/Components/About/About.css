@@ -2,10 +2,9 @@
 display: flex;
 flex-direction: column;
 height: 100vh;
-padding-top: 100px;
 }
 
-.title{
+.about-title{
     display: flex;
     align-items: center;
     color: black;
@@ -36,7 +35,7 @@ padding-top: 100px;
         flex-direction: column;
         }
     
-    .title{
+    .about-title{
         display: flex;
         align-items: center;
         color: black;
@@ -56,7 +55,7 @@ padding-top: 100px;
         height: 100%;
         }
 
-    .title{
+    .about-title{
         display: flex;
         align-items: center;
         color: black;
