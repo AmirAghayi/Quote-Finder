@@ -1,23 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './Footer.css';
 
 
 
-class Footer extends Component {
-
-
-
-
-
-render (){
+const Footer = (props) => {
   return (
-       <div>
-          <h1>QuoteFinder @2019</h1>
-       </div>
-   )
- }
-
+    <div>
+      <p className="footer">@2019-QuoteFinder </p>
+    </div>
+  )
 }
-
 
 
 

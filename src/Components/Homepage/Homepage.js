@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar/Navbar';
 import Frontbody from '../Frontbody/Frontbody';
-import Frontbottom from '../Frontbottom/Frontbottom';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
 import './Homepage.css';
@@ -42,7 +40,6 @@ render (){
   return (
     <div className="Homepage" style={{height: '100%'}}>
          <Frontbody className="quote-card-container" quotes={this.state.quotesList}/>
-         <Frontbottom />
          <Footer />
     </div>
     
