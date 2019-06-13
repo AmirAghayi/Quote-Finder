@@ -1,9 +1,62 @@
 
 
+.submit-form-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.page-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+
 .submit-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    align-items: center;
 }
 
+.line{
+    margin-top: 20px;
+}
+
+.submit-form label{
+    margin: 10px;
+}
+
+.quote-input{
+    height: 100px;
+    width: 400px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.author-input{
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.topic-input{
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+
+
+.submit-btn{
+    margin-top: 30px;
+    height: 50px;
+    width: 80px;
+    border-radius: 4px;
+    background-color: black;
+    color: white;
+}

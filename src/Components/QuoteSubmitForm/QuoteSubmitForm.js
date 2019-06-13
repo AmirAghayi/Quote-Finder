@@ -1,30 +1,62 @@
 import React, { Component } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 import './QuoteSubmitForm.css';
 
 
 
 
 class QuoteSubmitForm extends Component {
-    constructor(){
+    constructor() {
         super();
 
-        this.state ={
-            tag:"",
-            body:"",
-            author:""
+        this.state = {
+            quote: "",
+            author: "",
+            topic:"",
+            tag: ""
         };
     }
-         
 
 
 
-    render(){
-        return(
-            <div className="submit-form">
+
+    render() {
+        return (
+            <div className="submit-form-container">
                 <Navbar />
-                <h1 className="submit-quotes">This is the submit form!</h1>
+                <h1 className="page-title">Submit a Quote</h1>
+                <hr className="line"/>
 
+                <section className="submit-form-section">
+                    <form className="submit-form">
+                        <label>Quote:</label>
+                        <input 
+                        className="quote-input"
+                        type="text" 
+                        placeholder="Quote..." 
+                        />
+
+                        <label>Author:</label>
+                        <input 
+                        className="author-input"
+                        type="text" 
+                        placeholder="Author" />
+
+                        <label>Topic:</label>
+                        <input 
+                        className="topic-input"
+                        type="text" 
+                        placeholder="Topic" />
+
+
+                        <input 
+                        className="submit-btn"
+                        type="submit" 
+                        value="Submit" />
+                    </form>
+                </section>
+                <Footer />
             </div>
         )
     }
