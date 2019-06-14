@@ -23,9 +23,9 @@ class QuoteDetails extends Component {
         axios.get(`https://favqs.com/api/quotes/${this.props.match.params.id}`, { headers: {Authorization: `Token token="7e1cd958d0d8cfebace9c3d0e5c146e9"`}})
             .then(response => {
                 this.setState({
-                    author: response.data.quotes.author,
-                    body: response.data.quotes.body,
-                    tags: response.data.quotes.tages
+                    author: response.data.author,
+                    body: response.data.body,
+                    tags: response.data.tags
                 });
             });
 

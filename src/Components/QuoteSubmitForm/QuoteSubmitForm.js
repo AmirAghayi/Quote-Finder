@@ -31,7 +31,7 @@ class QuoteSubmitForm extends Component {
                 <section className="submit-form-section">
                     <form className="submit-form">
                         <label>Quote:</label>
-                        <input 
+                        <textarea 
                         className="quote-input"
                         type="text" 
                         placeholder="Quote..." 
