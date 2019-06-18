@@ -6,6 +6,8 @@ import Login from './Components/Login/Login';
 import QuoteSubmitForm from './Components/QuoteSubmitForm/QuoteSubmitForm';
 import Contact from './Components/Contact/Contact';
 import QuoteDetails from './Components/QuoteDetails/QuoteDetails';
+import SearchByAuthor from './Components/SearchByAuthor/SearchByAuthor';
+import SearchByTopic from './Components/SearchByTopic/SearchByTopic';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 
@@ -24,6 +26,8 @@ export default (
             <Route component={QuoteSubmitForm} path="/SubmitQuotes" />
             <Route component={Contact} path="/Contact Us" />
             <Route component={QuoteDetails} path="/quotes/:id" />
+            <Route component={SearchByAuthor} path="/SearchByAuthor" />
+            <Route component={SearchByTopic} path="/SearchByTopic" />
         </Switch>
     </div>
    

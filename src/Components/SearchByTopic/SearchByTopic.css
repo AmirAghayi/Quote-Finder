@@ -1,0 +1,24 @@
+.search-container-topic{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+}
+
+.topic-search-input{
+    height: 40px;
+    width: 60%;
+}
+
+.search-by-topic-btn{
+     height: 46px;
+     font-size: 12px;
+}
+
+.search-by-topic-btn:hover,.search-by-topic-btn:focus{
+    cursor: pointer;
+    background-color: rgb(82, 82, 82);
+    color: white;
+}

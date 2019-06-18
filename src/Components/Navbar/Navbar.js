@@ -74,8 +74,8 @@ render (){
                     <ul>
                         <Link to="/Homepage"><li>Home</li></Link>
                         <Link to="/About"><li>About</li></Link>
-                        <Link to="/Homepage"><li>Topics</li></Link>
-                        <Link to="/Homepage"><li>Authors</li></Link>
+                        <Link to="/SearchByTopic"><li>Search By Topic</li></Link>
+                        <Link to="/SearchByAuthor"><li>Search By Author</li></Link>
                         <Link to="/SubmitQuotes"><li>Submit a Quote</li></Link>
                         <Link to="/Contact Us" className="Contact"><li>Contact us</li></Link>
                         <a href="javascript:void(0)" onClick={() => {

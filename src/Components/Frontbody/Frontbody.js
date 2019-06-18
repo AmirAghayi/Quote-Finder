@@ -15,8 +15,10 @@ class Frontbody extends Component {
     return this.props.quotes.map((quote) => (
 
       <div className="quotes">
-        <Link to={`/quotes/${quote.id}`}>
-          <h1>{quote.body}</h1>
+        <Link 
+        to={`/quotes/${quote.id}`}
+        className="slide">
+          <h1 >{quote.body}</h1>
           <div className="author">
             <h2>"{quote.author}"</h2>
           </div>

@@ -25,10 +25,10 @@ class QuoteSubmitForm extends Component {
         return (
             <div className="submit-form-container">
                 <Navbar />
-                <h1 className="page-title">Submit a Quote</h1>
-                <hr className="line"/>
 
                 <section className="submit-form-section">
+                <h1 className="page-title">Submit a Quote</h1>
+                <hr className="line"/>
                     <form className="submit-form">
                         <label>Quote:</label>
                         <textarea 

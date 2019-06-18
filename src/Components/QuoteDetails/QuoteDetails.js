@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './QuoteDetails.css';
 
@@ -24,8 +26,7 @@ class QuoteDetails extends Component {
             .then(response => {
                 this.setState({
                     author: response.data.author,
-                    body: response.data.body,
-                    tags: response.data.tags
+                    body: response.data.body
                 });
             });
 
@@ -37,16 +38,28 @@ class QuoteDetails extends Component {
         return (
             <div className="quote-details-container">
                 <Navbar />
+                
 
+            <section className="modal">
+                <Link to="/Homepage">
+                <span className="closeBtn">&times;</span>
+                </Link>
+            
                 <div className="quote-body">
-                    <h1> {this.state.body} </h1>
+                    <h1> "{this.state.body}" </h1>
                 </div>
                 <div className="author">
                     <p className="author"> by {this.state.author} </p>
                 </div>
-                <div className="post-content">
-                    <p> {this.state.tags} </p>
-                </div>
+                <textarea 
+                
+                className="textarea"
+                type="textarea"
+                placeholder="Add a Comment" />
+                <button className="comment-btn">Post Comment</button>
+            </section>
+                
+            <Footer />    
             </div>
         )
     }

@@ -1,16 +1,30 @@
 
 
 .submit-form-container{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.submit-form-section{
+    display: block;
+    background-color: white;
+    margin: 150px auto;
+    padding: 20px;
+    width: 50%;
+    height: 60%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.17);
 }
 
 .page-title{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 150px;
 }
 
 
@@ -18,7 +32,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
+    text-align: left;
+    margin-left: 20px;     
 }
 
 .line{
@@ -30,33 +46,31 @@
 }
 
 .quote-input{
-    height: 100px;
-    width: 400px;
-    border-radius: 4px;
+    height: 70px;
+    width: 90%;
     margin-top: 5px;
+    border-style: inset;
 }
 
 .author-input{
-    height: 40px;
-    width: 200px;
-    border-radius: 4px;
+    height: 20px;
+    width: 90%;
     margin-top: 5px;
 }
 
 .topic-input{
-    height: 40px;
-    width: 200px;
-    border-radius: 4px;
+    height: 20px;
+    width: 90%;
     margin-top: 5px;
 }
 
 
 
 .submit-btn{
-    margin-top: 30px;
-    height: 50px;
+    margin-top: 60px;
+    height: 40px;
     width: 80px;
-    border-radius: 4px;
     background-color: black;
     color: white;
 }
+
