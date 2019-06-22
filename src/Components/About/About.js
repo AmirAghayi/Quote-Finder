@@ -16,7 +16,7 @@ render (){
     <div className="About">
         
           <Navbar />
-        
+          
       
           <p className="about-title">ABOUT US</p>
           <hr className="line"/>
