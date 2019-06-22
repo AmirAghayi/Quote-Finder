@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Frontbody from '../Frontbody/Frontbody';
+import CarouselView from '../Carousel/CarouselView/CarouselView';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
 import './Homepage.css';
@@ -39,6 +40,7 @@ render (){
 
   return (
     <div className="Homepage" style={{height: '100%'}}>
+         <CarouselView />
          <Frontbody className="quote-card-container" quotes={this.state.quotesList}/>
          <Footer />
     </div>
