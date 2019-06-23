@@ -3,7 +3,7 @@
     overflow: hidden;
     position: relative;
     display: flex;
-    background-image: radial-gradient(#333,#111)
+    background-image: radial-gradient(rgb(196, 196, 196),rgb(44, 44, 44))
 }
 
 .my-carousel button {
@@ -15,15 +15,23 @@
 .my-carousel .previous {
     left: 0;
     height: 5em;
+    margin-left: 50px; 
 }
 
+.my-carousel .previous:hover {
+    cursor: pointer;
+}
 
 .my-carousel .next {
     right: 0;
     height: 5em;
+    margin-right: 50px;
 }
 
 
+.my-carousel .next:hover {
+   cursor: pointer;
+}
 
 
 

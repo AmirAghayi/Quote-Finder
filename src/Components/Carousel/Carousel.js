@@ -19,7 +19,7 @@ class Carousel extends Component {
 
     render(){
         const images = this.props.data
-        .map((imageUrl, i) => (
+        .map((images, i) => (
             <div 
             key={i}   
             className="slide" 
@@ -27,7 +27,7 @@ class Carousel extends Component {
                 transform: `translateX(-${this.state.currentIndex}00%)`
             }}
             >
-                <img  src={imageUrl} alt={`${i+1}`} />
+                <img  src={images} alt={`${i+1}`} />
             </div>
         ));
 
