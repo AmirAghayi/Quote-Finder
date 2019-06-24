@@ -2,28 +2,24 @@
     display: grid;
     height: 300px;
     width: 30%;
-    background-image: url(https://images.unsplash.com/photo-1494212062681-54f7aa085e11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
-    background-size: cover;
     margin-top: 30px;
     padding: 40px;
     overflow: auto;
     text-align: left;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
     transition: 0.3s;
-    border-style: solid;
-    border-width: 1px;
-    border-color: aliceblue;
+    background-color: rgb(49, 49, 49);
 }
 
 
 .slide{
     text-decoration: none;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
     
 }
 
 .author{
-    color: rgb(255, 136, 0);
-    
+    color: rgb(255, 102, 0);
+    text-decoration: underline;
 }

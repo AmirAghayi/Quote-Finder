@@ -3,7 +3,7 @@
     overflow: hidden;
     position: relative;
     display: flex;
-    background-image: radial-gradient(rgb(196, 196, 196),rgb(44, 44, 44))
+    background-image: radial-gradient(rgb(196, 196, 196),rgb(44, 44, 44));
 }
 
 .my-carousel button {
@@ -16,21 +16,31 @@
     left: 0;
     height: 5em;
     margin-left: 50px; 
+    background-color: black;
+    color: aliceblue;
+    border-style: outset;
 }
 
 .my-carousel .previous:hover {
     cursor: pointer;
+    background-color: rgb(58, 57, 57);
+    color: white;
 }
 
 .my-carousel .next {
     right: 0;
     height: 5em;
     margin-right: 50px;
+    background-color: black;
+    color: aliceblue;
+    border-style: outset;
 }
 
 
 .my-carousel .next:hover {
    cursor: pointer;
+   background-color: rgb(58, 57, 57);
+   color: white;
 }
 
 
@@ -69,8 +79,8 @@
 
 
 .my-carousel  .dots {
-    height: 1em;
-    width: 1em;
+    height: 0.7em;
+    width: 0.7em;
     background-color: rgb(255, 255, 255);
     border-radius: 50%;
     transition: all linear 100ms;
@@ -80,7 +90,7 @@
 
 .my-carousel .highlighted{
      background-color: #c62;
-     transform: scale(1.2)
+     transform: scale(1.3)
 }
 
 

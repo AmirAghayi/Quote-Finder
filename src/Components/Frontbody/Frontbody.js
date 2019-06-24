@@ -18,9 +18,9 @@ class Frontbody extends Component {
         <Link 
         to={`/quotes/${quote.id}`}
         className="slide">
-          <h1 >{quote.body}</h1>
+          <h1 >"{quote.body}"</h1>
           <div className="author">
-            <h2>"{quote.author}"</h2>
+            <h2>{quote.author}</h2>
           </div>
         </Link>
       </div>
