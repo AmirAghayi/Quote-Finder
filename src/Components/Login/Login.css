@@ -64,10 +64,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 39px;
+    height: 44px;
     width: 44px;
     background-color: rgb(255, 174, 0);
-    border-style: outset;
+    border-style: none;
     border-color:  rgb(255, 174, 0);
 }
 
