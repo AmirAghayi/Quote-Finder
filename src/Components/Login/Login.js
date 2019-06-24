@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import MaterialIcon from 'material-icons-react';
 import Logo from '../Navbar/image/Logo.png';
 import swal from 'sweetalert';
 import { connect } from 'react-redux';
@@ -101,6 +102,9 @@ class Login extends Component {
             </div>
 
             <div className="username">
+               <div className="person-icon">
+                 <MaterialIcon icon="person" color="white"/> 
+              </div>
               <input
                 className="login-username-input"
                 placeholder="Username"
@@ -111,13 +115,16 @@ class Login extends Component {
             </div>
 
             <div className="password">
+                 <div className="person-icon">
+                     <MaterialIcon icon="vpn_key" color="white"/> 
+                 </div>
               <input
                 className="login-password-input"
                 placeholder="Password"
                 type="password"
                 value={this.state.password}
                 onChange={this.handlePasswordChange}
-              />
+               />
             </div>
 
             <button className="login-btn" onClick={this.loginUser}>
