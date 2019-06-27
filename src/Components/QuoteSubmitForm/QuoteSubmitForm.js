@@ -13,7 +13,7 @@ class QuoteSubmitForm extends Component {
         this.state = {
             quote: "",
             author: "",
-            topic:"",
+            topic: "",
             tag: ""
         };
     }
@@ -27,33 +27,44 @@ class QuoteSubmitForm extends Component {
                 <Navbar />
 
                 <section className="submit-form-section">
-                <h1 className="page-title">Submit a Quote</h1>
-                <hr className="line"/>
+                    <h1 className="page-title">Submit a Quote</h1>
+                    <hr className="line" />
                     <form className="submit-form">
-                        <label>Quote:</label>
-                        <textarea 
-                        className="quote-input"
-                        type="text" 
-                        placeholder="Quote..." 
-                        />
+                        <div className="quote-container">
+                            <label>Quote:</label>
+                            <textarea
+                                className="quote-input"
+                                type="text"
+                                placeholder="Quote..."
+                            />
+                        </div>
 
-                        <label>Author:</label>
-                        <input 
-                        className="author-input"
-                        type="text" 
-                        placeholder="Author" />
+                        <div className="author-container">
+                            <label>Author:</label>
+                            <input
+                                className="author-input"
+                                type="text"
+                                placeholder="Author" />
+                        </div>
 
-                        <label>Topic:</label>
-                        <input 
-                        className="topic-input"
-                        type="text" 
-                        placeholder="Topic" />
+                        <div className="topic-container">
+                            <label>Topic:</label>
+                            <input
+                                className="topic-input"
+                                type="text"
+                                placeholder="Topic" />
+                        </div>
 
 
-                        <input 
-                        className="submit-btn"
-                        type="submit" 
-                        value="Submit" />
+                        <div className="button-container">
+                            <button
+                                className="submit-btn"
+                                type="submit"
+                                value="Submit"> Submit</button>
+                        </div>
+
+
+
                     </form>
                 </section>
                 <Footer />

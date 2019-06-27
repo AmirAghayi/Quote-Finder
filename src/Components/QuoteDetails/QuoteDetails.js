@@ -40,7 +40,7 @@ class QuoteDetails extends Component {
                 <Navbar />
                 
 
-            <section className="modal">
+            <form className="modal">
                 <Link to="/Homepage">
                 <span className="closeBtn">&times;</span>
                 </Link>
@@ -57,7 +57,7 @@ class QuoteDetails extends Component {
                 type="textarea"
                 placeholder="Add a Comment" />
                 <button className="comment-btn">Post Comment</button>
-            </section>
+            </form>
                 
             <Footer />    
             </div>

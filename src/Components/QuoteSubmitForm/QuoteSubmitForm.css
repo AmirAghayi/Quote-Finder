@@ -17,19 +17,14 @@
     margin: 150px auto;
     padding: 20px;
     width: 50%;
-    height: 60%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.17);
 }
 
-.page-title{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
 
 
 .submit-form{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: left;
@@ -41,9 +36,34 @@
     margin-top: 20px;
 }
 
+
+
 .submit-form label{
     margin: 10px;
 }
+
+
+.page-title{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+ 
+.submit-form-section label{
+    margin-left: 0;
+    margin-top: 10px;
+}
+
+
+
 
 .quote-input{
     height: 70px;
@@ -52,11 +72,31 @@
     border-style: inset;
 }
 
+
+
+
+.author-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
 .author-input{
     height: 20px;
     width: 90%;
     margin-top: 5px;
 }
+
+
+.topic-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+
 
 .topic-input{
     height: 20px;
@@ -64,10 +104,15 @@
     margin-top: 5px;
 }
 
-
+.button-container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 50px;
+}
 
 .submit-btn{
-    margin-top: 60px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     height: 40px;
     width: 80px;
     background-color: black;
