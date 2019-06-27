@@ -14,10 +14,11 @@ class QuoteSubmitForm extends Component {
             quote: "",
             author: "",
             topic: "",
-            tag: ""
         };
     }
 
+
+const { quote,author,topic } = this.state
 
 
 
@@ -36,6 +37,7 @@ class QuoteSubmitForm extends Component {
                                 className="quote-input"
                                 type="text"
                                 placeholder="Quote..."
+                                value={this.state.quote}
                             />
                         </div>
 
@@ -44,7 +46,9 @@ class QuoteSubmitForm extends Component {
                             <input
                                 className="author-input"
                                 type="text"
-                                placeholder="Author" />
+                                placeholder="Author"
+                                value={this.state.author}
+                                />
                         </div>
 
                         <div className="topic-container">
@@ -52,7 +56,9 @@ class QuoteSubmitForm extends Component {
                             <input
                                 className="topic-input"
                                 type="text"
-                                placeholder="Topic" />
+                                placeholder="Topic"
+                                value={this.state.topic}
+                                />
                         </div>
 
 
