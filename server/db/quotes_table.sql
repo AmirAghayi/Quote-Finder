@@ -3,5 +3,5 @@ CREATE TABLE "Quotes" (
     quote_id INT,
     quotebody TEXT,
     author TEXT,
-    title TEXT
+    topic TEXT
     );

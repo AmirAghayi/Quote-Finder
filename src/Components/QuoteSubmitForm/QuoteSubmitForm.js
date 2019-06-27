@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import './QuoteSubmitForm.css';
-import Axios from 'axios';
+import axios from 'axios';
 
 
 
@@ -66,12 +66,12 @@ createQuote = () => {
     }
 
 
-Axios.post('/api/quote',quote)
+axios.post('/api/quote',quote)
      .then(response => {
          console.log(response.data)
-         this.props.history.push('/Homepage');
+         this.resetState();
+         this.props.history.push('/Contact Us');
      });
-this.resetState();
 };
 
 
@@ -124,7 +124,9 @@ this.resetState();
                             <button
                                 className="submit-btn"
                                 type="submit"
-                                value="Submit"> Submit</button>
+                                value="Submit"
+                                onClick={this.createQuote}
+                                > Submit</button>
                         </div>
 
 

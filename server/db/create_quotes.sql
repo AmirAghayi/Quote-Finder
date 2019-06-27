@@ -1,4 +1,4 @@
 INSERT INTO "Quotes" 
-(quote_id, quotebody, author, title)
+(quotebody, author, topic)
 VALUES
-($1, $2, $3, $4);
+($1, $2, $3);

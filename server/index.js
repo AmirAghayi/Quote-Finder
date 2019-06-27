@@ -187,13 +187,11 @@ let {
 
 
 
-app.post('api/quote', (req,res) => {
-    const {quoteBody, author, title} = req.body;
-    const db = req.db;
+app.post('/api/quote', (req,res) => {
+    const {quotebody, author, topic} = req.body;
+    const db = req.app.get('db');
 
-    const quote_id = req.quote.id;
-    
-    db.create_quotes([quote_id,quotebody,author,title])
+    db.create_quotes([quotebody,author,topic])
     .then( response => {
         res.status(200).send('Submitted');
     }).catch(err => {
