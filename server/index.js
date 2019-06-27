@@ -183,6 +183,27 @@ let {
 
 
 
+// endpoints
+
+
+
+app.post('api/quote', (req,res) => {
+    const {quoteBody, author, title} = req.body;
+    const db = req.db;
+
+    const quote_id = req.quote.id;
+    
+    db.create_quotes([quote_id,quotebody,author,title])
+    .then( response => {
+        res.status(200).send('Submitted');
+    }).catch(err => {
+        console.log('createQuote', err)
+    });
+});
+
+
+
+
 
 
 

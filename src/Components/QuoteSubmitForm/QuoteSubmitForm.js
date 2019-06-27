@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import './QuoteSubmitForm.css';
+import Axios from 'axios';
 
 
 
@@ -11,11 +12,71 @@ class QuoteSubmitForm extends Component {
         super();
 
         this.state = {
-            quote: "",
+            quotebody: "",
             author: "",
             topic: "",
         };
     }
+
+
+handleQuotebodyChange = (event) => {
+   this.setState({
+       quotebody: event.target.value
+   });
+}
+
+
+handleAuthorChange = (event) => {
+    this.setState({
+        author: event.target.value
+    });
+}
+
+
+handleTopicChange = (event) => {
+    this.setState({
+        topic: event.target.value
+    });
+}
+
+
+
+
+resetState = () => {
+    this.setState({
+        quotebody: "",
+        author: "",
+        topic: "",
+    });
+};
+
+
+
+
+createQuote = () => {
+    const {
+        quotebody, 
+        author, 
+        topic 
+    } = this.state;
+    const quote = {
+        quotebody, 
+        author, 
+        topic
+    }
+
+
+Axios.post('/api/quote',quote)
+     .then(response => {
+         console.log(response.data)
+         this.props.history.push('/Homepage');
+     });
+this.resetState();
+};
+
+
+
+
 
 
 
@@ -34,7 +95,7 @@ class QuoteSubmitForm extends Component {
                                 className="quote-input"
                                 type="text"
                                 placeholder="Quote..."
-                                value={this.state.quote}
+                                onChange={this.handleQuotebodyChange}
                             />
                         </div>
 
@@ -44,7 +105,7 @@ class QuoteSubmitForm extends Component {
                                 className="author-input"
                                 type="text"
                                 placeholder="Author"
-                                value={this.state.author}
+                                onChange={this.handleAuthorChange}
                                 />
                         </div>
 
@@ -54,7 +115,7 @@ class QuoteSubmitForm extends Component {
                                 className="topic-input"
                                 type="text"
                                 placeholder="Topic"
-                                value={this.state.topic}
+                                onChange={this.handleTopicChange}
                                 />
                         </div>
 
