@@ -18,9 +18,6 @@ class QuoteSubmitForm extends Component {
     }
 
 
-const { quote,author,topic } = this.state
-
-
 
     render() {
         return (
