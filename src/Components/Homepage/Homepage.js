@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Frontbody from '../Frontbody/Frontbody';
+import { Link } from 'react-router-dom';
 import CarouselView from '../Carousel/CarouselView/CarouselView';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
@@ -14,46 +15,55 @@ class Homepage extends Component {
 
     this.state = {
       quotesList: [],
-      quotebody:"",
-      author:""
+      userCreatedQuotes: []
     };
   }
 
 
 
   componentDidMount() {
-    this.getQuotes();
+    // this.getQuotes();
     this.getUserCreatedQuotes();
   }
 
 
-  getQuotes = () => {
-    axios.get('https://favqs.com/api/quotes', { headers: { Authorization: `Token token="7e1cd958d0d8cfebace9c3d0e5c146e9"` } })
+  // getQuotes = () => {
+  //   axios.get('https://favqs.com/api/quotes', { headers: { Authorization: `Token token="7e1cd958d0d8cfebace9c3d0e5c146e9"` } })
+  //     .then(response => {
+  //       console.log(response)
+  //       this.setState({
+  //         quotesList: response.data.quotes
+  //       })
+  //     })
+  // }
+
+
+  getUserCreatedQuotes = () => {
+
+    axios.get('/api/userCreatedQuotes')
       .then(response => {
         console.log(response)
         this.setState({
-          quotesList: response.data.quotes
+          userCreatedQuotes: response.data
         })
       })
   }
 
 
-getUserCreatedQuotes = () => {
-  const { quotebody, author } = this.state;
-  const userCreatedQuote = { quotebody,author}
-  axios.get('/api/userCreatedQuotes', userCreatedQuote)
-      .then(response => {
-        console.log(response)
-        this.setState({
-          quotebody: response.data.quotebody,
-          author: response.data.author
-        })
-      })
-}
-
-
   render() {
 
+    const userCreatedQuotes = this.state.userCreatedQuotes.map(quote => {
+      return (<Link
+        to={`/quotes/${quote.id}`}
+        className="slide">
+          <div className="usercreated-card">
+            <div className="usercreated-quotebody">{quote.quotebody}</div>
+
+            <div className="usercreated-quoteauthor">{quote.author}</div>
+          </div>
+          </Link>
+      )
+    })
 
     return (
       <div className="Homepage" style={{ height: '100%' }}>
@@ -67,10 +77,7 @@ getUserCreatedQuotes = () => {
 
 
         <section className="usercreated-quotes">
-          <div className="usercreated-card">
-              <div className="usercreated-quotebody">{this.state.quotebody}</div>
-              <div className="usercreated-quoteauthor">{this.state.author}</div>
-          </div>
+               {userCreatedQuotes}
         </section>
 
 

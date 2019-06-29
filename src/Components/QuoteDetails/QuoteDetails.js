@@ -14,25 +14,42 @@ class QuoteDetails extends Component {
         this.state = {
             author: "",
             body: "",
-            commentBody:""
+            commentBody:"",
+            comments: []
         }
     }
 
 
 
 
+    // componentWillMount = () => {
+    //     axios.get(`https://favqs.com/api/quotes/${this.props.match.params.id}`, { headers: {Authorization: `Token token="7e1cd958d0d8cfebace9c3d0e5c146e9"`}})
+    //         .then(response => {
+    //             this.setState({
+    //                 author: response.data.author,
+    //                 body: response.data.body
+    //             });
+    //         });
+
+    //     this.getComments();
+
+    // }
+
+
+
     componentWillMount = () => {
-        axios.get(`https://favqs.com/api/quotes/${this.props.match.params.id}`, { headers: {Authorization: `Token token="7e1cd958d0d8cfebace9c3d0e5c146e9"`}})
+        axios.get(`/api/quotes/${this.props.match.params.id}`)
             .then(response => {
                 this.setState({
                     author: response.data.author,
-                    body: response.data.body
+                    body: response.data.quotebody
                 });
             });
 
         this.getComments();
 
     }
+
 
 
 
@@ -48,8 +65,6 @@ class QuoteDetails extends Component {
 
     resetState = () => {
         this.setState({
-            author: "",
-            body: "",
             commentBody:""
         });
       };
@@ -60,23 +75,23 @@ class QuoteDetails extends Component {
 
     createComment = () => {
      const { commentBody } = this.state;
-     const comment = {commentBody};
+     const comment = {commentBody, quoteId: this.props.match.params.id};
 
      axios.post('/api/comment', comment)
      .then(response => {
          this.setState({
-             commentBody: response.data.commentBody
+             comments: response.data
          });
+         this.resetState();
      });
-     this.resetState();
     };
 
 
 getComments = () => {
-  axios.get('/api/comments')
+  axios.get('/api/comments?quote_id='+ this.props.match.params.id)
   .then(response => {
       this.setState({
-          commentBody: response.data.commentBody
+          comments: response.data
       })
   })
 }
@@ -85,12 +100,23 @@ getComments = () => {
 
 
     render() {
+
+        const comments = this.state.comments.map(comment => {
+            return (
+                <div>
+                    <p>{comment.commentbody}</p>
+                </div>
+            )
+        })
         return (
             <div className="quote-details-container">
                 <Navbar />
                 
 
-            <form className="modal">
+            <form 
+            onSubmit={e => e.preventDefault()}
+            className="modal"
+            >
                 <Link to="/Homepage">
                 <span className="closeBtn">&times;</span>
                 </Link>
@@ -104,6 +130,10 @@ getComments = () => {
 
 
                 <hr />
+
+                <div>
+                    {comments}
+                </div>
 
 
                 <section className="comments-container">

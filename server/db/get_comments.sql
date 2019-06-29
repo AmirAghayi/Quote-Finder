@@ -1,1 +1,2 @@
-SELECT * FROM "Comments";
+SELECT * FROM "Comments" 
+WHERE quote_id = $1;

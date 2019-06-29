@@ -186,7 +186,6 @@ let {
 // endpoints
 
 app.get('/api/userCreatedQuotes', (req,res) => {
-    const {quotebody, author } = req.body;
     const db = req.app.get('db');
 
     db.get_usercreatedquotes()
@@ -199,11 +198,25 @@ app.get('/api/userCreatedQuotes', (req,res) => {
 
 
 
-app.get('/api/comments', (req,res) => {
-    const { commentBody } = req.body;
+app.get('/api/quotes/:id', (req,res) => {
     const db = req.app.get('db');
 
-    db.get_comments()
+    db.Quotes.find(req.params.id)
+    .then ( response => {
+       res.status(200).send(response); 
+    }).catch((err) => {
+         console.log('getuserceatedquotes:', err)
+    });
+});
+
+
+
+
+
+app.get('/api/comments', (req,res) => {
+    const db = req.app.get('db');
+
+    db.get_comments([req.query.quote_id])
     .then ( response => {
        res.status(200).send(response); 
     }).catch((err) => {
@@ -229,12 +242,15 @@ app.post('/api/quote', (req,res) => {
 
 
 app.post('/api/comment', (req,res) => {
-   const { commentBody } = req.body;
+   const { commentBody, quoteId } = req.body;
    const db = req.app.get('db');
 
-   db.create_comment([])
+   db.create_comment([commentBody,quoteId,req.user.id])
    .then(response => {
-    res.status(200).send('Submitted');
+       return db.get_comments([quoteId])
+   })
+   .then(comments => {
+    res.status(200).send(comments);
    }).catch(err => {
         console.log('createQuote', err)
     });

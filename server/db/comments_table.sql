@@ -1,5 +1,7 @@
 CREATE TABLE "Comments" (
 id SERIAL PRIMARY KEY,
-comment_id INT,
-commentBody TEXT
+quote_id INT REFERENCES "Quotes" (id),
+user_id INT REFERENCES "Users" (id),
+commentBody TEXT,
 );
+

@@ -1,5 +1,5 @@
 INSERT INTO "Comments" 
-(commentBody)
+(commentBody, quote_id, user_id)
 VALUES
-($1);
+($1,$2,$3);
 

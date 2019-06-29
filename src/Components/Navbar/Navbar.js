@@ -3,7 +3,7 @@ import Logo from './image/Logo.png';
 import DrawerToggleButton from '../DrawerToggleButton/DrawerToggleButton';
 import Sidedrawer from '../Sidedrawer/Sidedrawer';
 import Backdrop from '../Backdrop/Backdrop';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setUser} from '../../redux/reducer';  
@@ -115,4 +115,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps, {setUser})(Navbar);
+export default withRouter(connect(mapStateToProps, {setUser})(Navbar));

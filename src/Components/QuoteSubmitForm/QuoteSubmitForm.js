@@ -70,7 +70,7 @@ axios.post('/api/quote',quote)
      .then(response => {
          console.log(response.data)
          this.resetState();
-         this.props.history.push('/Contact Us');
+         this.props.history.push('/Homepage');
      });
 };
 
@@ -88,7 +88,10 @@ axios.post('/api/quote',quote)
                 <section className="submit-form-section">
                     <h1 className="page-title">Submit a Quote</h1>
                     <hr className="line" />
-                    <form className="submit-form">
+                    <form 
+                    className="submit-form"
+                    onSubmit={e => e.preventDefault()} 
+                    >
                         <div className="quote-container">
                             <label>Quote:</label>
                             <textarea
