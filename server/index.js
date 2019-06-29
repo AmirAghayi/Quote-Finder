@@ -185,6 +185,33 @@ let {
 
 // endpoints
 
+app.get('/api/userCreatedQuotes', (req,res) => {
+    const {quotebody, author } = req.body;
+    const db = req.app.get('db');
+
+    db.get_usercreatedquotes()
+    .then ( response => {
+       res.status(200).send(response); 
+    }).catch((err) => {
+         console.log('getuserceatedquotes:', err)
+    });
+});
+
+
+
+app.get('/api/comments', (req,res) => {
+    const { commentBody } = req.body;
+    const db = req.app.get('db');
+
+    db.get_comments()
+    .then ( response => {
+       res.status(200).send(response); 
+    }).catch((err) => {
+         console.log('getcomments:', err)
+    });
+
+});
+
 
 
 app.post('/api/quote', (req,res) => {
@@ -198,6 +225,20 @@ app.post('/api/quote', (req,res) => {
         console.log('createQuote', err)
     });
 });
+
+
+
+app.post('/api/comment', (req,res) => {
+   const { commentBody } = req.body;
+   const db = req.app.get('db');
+
+   db.create_comment([])
+   .then(response => {
+    res.status(200).send('Submitted');
+   }).catch(err => {
+        console.log('createQuote', err)
+    });
+})
 
 
 

@@ -14,11 +14,11 @@ class QuoteDetails extends Component {
         this.state = {
             author: "",
             body: "",
-            tag: "",
+            commentBody:""
         }
     }
 
-//   how do I use tags?
+
 
 
     componentWillMount = () => {
@@ -30,9 +30,59 @@ class QuoteDetails extends Component {
                 });
             });
 
-
+        this.getComments();
 
     }
+
+
+
+    handleCommentBodyChange = (event) => {
+        this.setState({
+            commentBody: EventTarget.target.value
+        })
+    }
+
+
+
+
+
+    resetState = () => {
+        this.setState({
+            author: "",
+            body: "",
+            commentBody:""
+        });
+      };
+
+
+
+
+
+    createComment = () => {
+     const { commentBody } = this.state;
+     const comment = {commentBody};
+
+     axios.post('/api/comment', comment)
+     .then(response => {
+         this.setState({
+             commentBody: response.data.commentBody
+         });
+     });
+     this.resetState();
+    };
+
+
+getComments = () => {
+  axios.get('/api/comments')
+  .then(response => {
+      this.setState({
+          commentBody: response.data.commentBody
+      })
+  })
+}
+
+
+
 
     render() {
         return (
@@ -51,12 +101,28 @@ class QuoteDetails extends Component {
                 <div className="author">
                     <p className="author"> by {this.state.author} </p>
                 </div>
+
+
+                <hr />
+
+
+                <section className="comments-container">
+                      <div className="commentbody">
+                           {this.state.commentBody}
+                      </div>
+                </section>
+
+
                 <textarea 
-                
+                onChange={this.handleCommentBodyChange}
+                value={this.state.commentBody}
                 className="textarea"
                 type="textarea"
                 placeholder="Add a Comment" />
-                <button className="comment-btn">Post Comment</button>
+                <button 
+                onClick={this.createComment}
+                className="comment-btn"
+                >Post Comment</button>
             </form>
                 
             <Footer />    

@@ -13,7 +13,9 @@ class Homepage extends Component {
     super(props);
 
     this.state = {
-      quotesList: []
+      quotesList: [],
+      quotebody:"",
+      author:""
     };
   }
 
@@ -21,6 +23,7 @@ class Homepage extends Component {
 
   componentDidMount() {
     this.getQuotes();
+    this.getUserCreatedQuotes();
   }
 
 
@@ -35,6 +38,20 @@ class Homepage extends Component {
   }
 
 
+getUserCreatedQuotes = () => {
+  const { quotebody, author } = this.state;
+  const userCreatedQuote = { quotebody,author}
+  axios.get('/api/userCreatedQuotes', userCreatedQuote)
+      .then(response => {
+        console.log(response)
+        this.setState({
+          quotebody: response.data.quotebody,
+          author: response.data.author
+        })
+      })
+}
+
+
   render() {
 
 
@@ -47,6 +64,15 @@ class Homepage extends Component {
         <section className="quote-cards-container">
           <Frontbody className="quote-card-container" quotes={this.state.quotesList} />
         </section>
+
+
+        <section className="usercreated-quotes">
+          <div className="usercreated-card">
+              <div className="usercreated-quotebody">{this.state.quotebody}</div>
+              <div className="usercreated-quoteauthor">{this.state.author}</div>
+          </div>
+        </section>
+
 
         <div className="footer-container">
           <Footer />
