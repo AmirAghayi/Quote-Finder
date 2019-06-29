@@ -38,7 +38,7 @@ class QuoteDetails extends Component {
 
     handleCommentBodyChange = (event) => {
         this.setState({
-            commentBody: EventTarget.target.value
+            commentBody: event.target.value
         })
     }
 
