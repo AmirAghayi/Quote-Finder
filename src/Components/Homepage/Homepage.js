@@ -55,7 +55,7 @@ class Homepage extends Component {
     const userCreatedQuotes = this.state.userCreatedQuotes.map(quote => {
       return (<Link
         to={`/quotes/${quote.id}`}
-        className="slide">
+        className="homepage-slide">
           <div className="usercreated-card">
             <div className="usercreated-quotebody">{quote.quotebody}</div>
 
@@ -70,6 +70,13 @@ class Homepage extends Component {
         <section className="carousel-container">
           <CarouselView />
         </section>
+
+<section>
+    <h1 className="homepage-about-title">About Quote-Finder</h1>
+    <p className="homepage-about-text">This website Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, deleniti doloribus dolore perspiciatis facere distinctio magnam deserunt eum unde numquam voluptatibus id consequatur laudantium iste architecto ullam nemo eius est! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus sunt a ab eaque neque aut dolore quam quisquam quia nobis, esse provident non! Provident sint, minus quas voluptate adipisci illo.lorem Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab quis sequi eveniet ex. Ipsum tempore laudantium enim, eaque deleniti eos quibusdam consequuntur reiciendis aspernatur cum saepe harum. Voluptatem, eveniet ex.</p>
+</section>
+       
+
 
         <section className="quote-cards-container">
           <Frontbody className="quote-card-container" quotes={this.state.quotesList} />

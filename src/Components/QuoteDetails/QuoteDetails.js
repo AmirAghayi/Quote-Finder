@@ -110,7 +110,6 @@ getComments = () => {
         })
         return (
             <div className="quote-details-container">
-                <Navbar />
                 
 
             <form 
@@ -118,7 +117,7 @@ getComments = () => {
             className="modal"
             >
                 <Link to="/Homepage">
-                <span className="closeBtn">&times;</span>
+                    <span className="closeBtn">&times;</span>
                 </Link>
             
                 <div className="quote-body">

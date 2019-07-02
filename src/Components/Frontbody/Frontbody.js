@@ -14,7 +14,7 @@ class Frontbody extends Component {
   render() {
     return this.props.quotes.map((quote) => (
 
-      <div className="quote-card-container">
+      <div className="Quote-card-container">
         <section className="quotes">
           <Link
             to={`/quotes/${quote.id}`}
