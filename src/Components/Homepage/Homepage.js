@@ -57,7 +57,7 @@ class Homepage extends Component {
         to={`/quotes/${quote.id}`}
         className="homepage-slide">
           <div className="usercreated-card">
-            <div className="usercreated-quotebody">{quote.quotebody}</div>
+            <div className="usercreated-quotebody">"{quote.quotebody}"</div>
 
             <div className="usercreated-quoteauthor">{quote.author}</div>
           </div>
