@@ -135,12 +135,6 @@ getComments = () => {
                 </div>
 
 
-                <section className="comments-container">
-                      <div className="commentbody">
-                           {this.state.commentBody}
-                      </div>
-                </section>
-
 
                 <textarea 
                 onChange={this.handleCommentBodyChange}

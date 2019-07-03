@@ -18,7 +18,7 @@ return(
             <div className={drawerClasses}>
                 <ul>
                 <Link to="/Homepage"><li>Home</li></Link>
-                        <Link to="/About"><li>About</li></Link>
+                        <Link to="/Favorites"><li>Favorite Quotes</li></Link>
                         <Link to="/SearchByTopic"><li>Search By Topic</li></Link>
                         <Link to="/SearchByAuthor"><li>Search By Author</li></Link>
                         <Link to="/SubmitQuotes"><li>Submit a Quote</li></Link>

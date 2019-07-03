@@ -1,6 +1,6 @@
 import React from 'react';
 import Homepage from './Components/Homepage/Homepage';
-import About from './Components/About/About';
+import Favorites from './Components/Favorites/Favorites';
 import Registration from './Components/Registration/Registration';
 import Login from './Components/Login/Login';
 import QuoteSubmitForm from './Components/QuoteSubmitForm/QuoteSubmitForm';
@@ -20,7 +20,7 @@ export default (
         <Route component={Navbar} path="/Homepage"/>
         <Switch>
             <Route component={Registration} exact path="/"/>
-            <Route component={About} path="/About" />
+            <Route component={Favorites} path="/Favorites" />
             <Route component={Homepage} path="/Homepage" />
             <Route component={Login} path="/Login" />
             <Route component={QuoteSubmitForm} path="/SubmitQuotes" />
