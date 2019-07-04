@@ -5,7 +5,7 @@ import MaterialIcon from 'material-icons-react';
 import Logo from '../Navbar/image/Logo.png';
 import swal from 'sweetalert';
 import { connect } from 'react-redux';
-import { setUser} from '../../redux/reducer';  
+import { setUser } from '../../redux/reducer';
 import './Login.css';
 
 
@@ -60,7 +60,7 @@ class Login extends Component {
     if (validation) {
       axios.post("/login", user)
         .then(response => {
-            console.log('response',response.data)
+          console.log('response', response.data)
           this.props.setUser(response.data.user.username);
 
           this.props.history.push("/Homepage");
@@ -68,20 +68,20 @@ class Login extends Component {
         .catch(err => {
           console.log("this is error in login user", err);
           console.log('creating failed!')
-          this.setState({ 
+          this.setState({
             registerMessage: swal("Username or password is wrong!", "Quote Finder", "warning")
           })
         });
     } else {
       this.setState({
-        error: swal("Error","username or password missing", "warning")
+        error: swal("Error", "username or password missing", "warning")
       });
     }
   };
 
 
   renderAlert = () => {
-    return this.state.username === "" || this.state.password === ""  ? false : true;
+    return this.state.username === "" || this.state.password === "" ? false : true;
   };
 
 
@@ -93,17 +93,17 @@ class Login extends Component {
           <section className="login-form">
             <Link to="/">
               <img
-              className="logo-icon"
-              src={Logo}
-              alt="Logo" />
-              </Link>
+                className="logo-icon"
+                src={Logo}
+                alt="Logo" />
+            </Link>
             <div className="title">
               <h1>Login</h1>
             </div>
 
             <div className="username">
-               <div className="person-icon">
-                 <MaterialIcon icon="person" color="white"/> 
+              <div className="person-icon">
+                <MaterialIcon icon="person" color="white" />
               </div>
               <input
                 className="login-username-input"
@@ -115,21 +115,27 @@ class Login extends Component {
             </div>
 
             <div className="password">
-                 <div className="person-icon">
-                     <MaterialIcon icon="vpn_key" color="white"/> 
-                 </div>
+              <div className="person-icon">
+                <MaterialIcon icon="vpn_key" color="white" />
+              </div>
               <input
                 className="login-password-input"
                 placeholder="Password"
                 type="password"
                 value={this.state.password}
                 onChange={this.handlePasswordChange}
-               />
+              />
             </div>
 
             <button className="login-btn" onClick={this.loginUser}>
               <p className="Login-text">Login</p>
             </button>
+
+            <div className="register-message-link-section">
+              <p className="register-message-link">New to Quote-Finder?
+              <Link to="/"><p className="loginpage-register-link">Register Now</p></Link>
+              </p>
+            </div>
 
           </section>
         </div>
@@ -140,10 +146,10 @@ class Login extends Component {
 
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
   console.log('this is redux store', state)
-    return state;
+  return state;
 }
 
 
-export default connect(mapStateToProps, {setUser})(Login);
+export default connect(mapStateToProps, { setUser })(Login);

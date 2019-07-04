@@ -109,6 +109,37 @@
 }
 
 
+.register-message-link-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+}
+
+
+
+.register-message-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+
+}
+
+
+
+
+.loginpage-register-link {
+    color: orange;
+    text-decoration: underline;
+}
+
+
+
+
+
+
 @media screen and (max-width:1300px) {
     
 

@@ -8,20 +8,20 @@ import './Registration.css';
 
 
 class Registration extends Component {
-          constructor() {
-            super();
+  constructor() {
+    super();
 
-            this.state = {
-              firstName: "",
-              lastName: "",
-              emailAddress: "",
-              phoneNumber: "",
-              username: "",
-              password: "",
-              error: "",
-              registerMessage: "",
-            };
-          }
+    this.state = {
+      firstName: "",
+      lastName: "",
+      emailAddress: "",
+      phoneNumber: "",
+      username: "",
+      password: "",
+      error: "",
+      registerMessage: "",
+    };
+  }
 
 
   handleFirstnameChange = e => {
@@ -94,7 +94,7 @@ class Registration extends Component {
     if (validation) {
       axios.post("/register", user)
         .then(response => {
-          
+
           this.props.history.push("/");
           this.resetState();
           this.setState({
@@ -102,7 +102,7 @@ class Registration extends Component {
           });
         }).catch((err) => {
           console.log('creating failed!')
-          this.setState({ 
+          this.setState({
             registerMessage: swal("Username or email is already in use!", "Quote Finder", "warning")
           })
         })
@@ -218,9 +218,12 @@ class Registration extends Component {
                 <p className="signup-text">sign up</p>
               </Link>
 
-              <Link className="login-button" to="/Login">
-                <p className="Login-text">Login</p>
-              </Link>
+              <section className="registerpage-login-link-section">
+                <p className="login-link-question" > Already have an account?
+                  <Link className="registerpage-login-link" to="/Login">Login</Link>
+                </p>
+              </section>
+
             </div>
 
           </section>

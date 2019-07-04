@@ -136,9 +136,28 @@
 } 
 
 
+/* 
+.registerpage-login-link-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} */
 
 
+.login-link-question {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
 
+
+.registerpage-login-link {
+    color: orange;
+    text-decoration: underline;
+}
 
 @media screen and (max-width: 1300px) {
 
