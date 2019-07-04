@@ -17,7 +17,7 @@ return(
         <section>
             <div className={drawerClasses}>
                 <ul>
-                    {/* <li>{this.props.user}</li> */}
+                    <li>{props.user}</li>
                 <Link to="/Homepage"><li>Home</li></Link>
                         <Link to="/Favorites"><li>Favorite Quotes</li></Link>
                         <Link to="/SearchByTopic"><li>Search By Topic</li></Link>

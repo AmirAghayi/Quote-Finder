@@ -14,33 +14,39 @@
 
 .my-carousel .previous {
     left: 0;
-    height: 5em;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
     margin-left: 50px; 
     background-color: black;
     color: aliceblue;
-    border-style: outset;
+    border-style: none;
+    font-size: 28px;
 }
 
 .my-carousel .previous:hover {
     cursor: pointer;
-    background-color: rgb(58, 57, 57);
-    color: white;
+    background-color: rgb(196, 196, 196);
+   color: black;
 }
 
 .my-carousel .next {
     right: 0;
-    height: 5em;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
     margin-right: 50px;
     background-color: black;
     color: aliceblue;
-    border-style: outset;
+    border-style: none;
+    font-size: 28px;
 }
 
 
 .my-carousel .next:hover {
    cursor: pointer;
-   background-color: rgb(58, 57, 57);
-   color: white;
+   background-color: rgb(196, 196, 196);
+   color: black;
 }
 
 
@@ -97,3 +103,31 @@
 .my-carousel  .dots:not(:first-child) {
     margin-left: .5em;
 }
+
+
+@media screen and (max-width:1400px){
+    .my-carousel button {
+       display: none;
+    }
+
+}
+
+
+
+@media screen and (max-width:900px){
+
+    .my-carousel {
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+    }
+
+    .my-carousel img {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+     }
+}
+
+
