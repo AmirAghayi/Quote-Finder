@@ -43,14 +43,25 @@
    border-radius: 2px;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1400px){
     .logo-nav{
-        margin-left: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 1.9s;
     }
 }
 
- @media screen and (max-width: 800px){
+ @media screen and (max-width: 1400px){
       .nav{
           display: none;
       }
  }
+
+ @media screen and (max-width:1400px){
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
