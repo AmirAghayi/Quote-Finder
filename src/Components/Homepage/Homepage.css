@@ -36,7 +36,7 @@
     flex-flow: column;
     height: 200px;
     width: 200px;
-    margin: 20px 20px 20px 80px;
+    margin: 20px 20px 20px 50px;
     padding: 30px;
     overflow: auto;
     text-align: left;
@@ -63,3 +63,5 @@
 .usercreated-quoteauthor {
     margin-top: 50px;
 }
+
+
