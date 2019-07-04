@@ -4,6 +4,7 @@ import DrawerToggleButton from '../DrawerToggleButton/DrawerToggleButton';
 import Sidedrawer from '../Sidedrawer/Sidedrawer';
 import Backdrop from '../Backdrop/Backdrop';
 import { Link, withRouter } from 'react-router-dom';
+import MaterialIcon from 'material-icons-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setUser} from '../../redux/reducer';  
@@ -90,8 +91,11 @@ render (){
                         }}><li>Log Out</li></a>
                              
                              
-                             
-                        <li>{this.props.user}</li>
+                        <section className="navbar-username-icon-section">
+                            <p className="navbar-username">{this.props.user}</p>
+                            <MaterialIcon icon="person" color="white" />
+                        </section>     
+                        
                     </ul>
                 </div>
 

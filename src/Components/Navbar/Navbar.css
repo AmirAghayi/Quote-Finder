@@ -38,10 +38,29 @@
 }
 
 
+
 .nav ul a:hover{
    background-color: rgb(78, 78, 78);
    border-radius: 2px;
 }
+
+
+
+.navbar-username-icon-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+
+.navbar-username {
+ color: aliceblue;
+ margin: 10px 5px 10px 20px;
+}
+
+
 
 @media screen and (max-width: 1400px){
     .logo-nav{
