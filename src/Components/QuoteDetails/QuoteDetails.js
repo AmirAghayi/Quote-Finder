@@ -103,14 +103,24 @@ class QuoteDetails extends Component {
 
         const comments = this.state.comments.map(comment => {
             return (
-                <section className="quote-details-commentbody-container">
-                    <div className="quote-details-comments-username">
-                        <p>Username:</p>
-                    </div>
+                <section className="comments-section">
+                    <span className="quote-details-commentbody-username-container">
+                        <div className="quote-details-comments-username">
+                            <p>Username:</p>
+                        </div>
 
-                    <div className="quote-details-commentbody-singlecomment">
-                        <p>{comment.commentbody}</p>
-                    </div>
+                        <div className="quote-details-commentbody-singlecomment">
+                            <p>{comment.commentbody}</p>
+                        </div>
+                    </span>
+                    
+                    <span className="quote-details-comment-functions">
+                          <select>
+                              <option>Edit</option>
+                              <option>Delete</option>
+                              <option>Reply</option>
+                          </select>
+                    </span>
 
                 </section>
             )

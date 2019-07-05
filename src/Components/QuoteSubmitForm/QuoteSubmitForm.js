@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
+import { Link } from 'react-router-dom';
 import './QuoteSubmitForm.css';
 import axios from 'axios';
 
@@ -86,6 +87,7 @@ axios.post('/api/quote',quote)
                 <Navbar />
 
                 <section className="submit-form-section">
+                    <Link to="/Homepage" className="quote-submit-form-x-button">x</Link>
                     <h1 className="page-title">Submit a Quote</h1>
                     <hr className="line" />
                     <form 
