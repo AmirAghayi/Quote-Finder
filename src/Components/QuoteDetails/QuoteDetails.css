@@ -16,7 +16,6 @@
     margin: 150px auto;
     padding: 20px;
     width: 50%;
-    height: 80%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.17);   
     overflow: hidden;
 }
@@ -42,10 +41,44 @@
     font-weight: bold;
 }
 
+
+
+.quote-details-commentbody-container {
+    display: flex;
+    flex-direction: column; 
+    background-color: gray;
+    margin: 20px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.quote-details-commentbody-singlecomment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+    width: 80%;
+    text-align: left;
+    transition: 0.3s;
+}
+
+
+
+.quote-details-comments-username {
+    align-self: baseline;
+    font-weight: bold;
+}
+
+
+
+
+
+
 .textarea{
     height: 80px;
     width: 100%;
     border-style: inset;
+    margin-top: 50px;
 }
 
 

@@ -14,7 +14,7 @@ class QuoteDetails extends Component {
         this.state = {
             author: "",
             body: "",
-            commentBody:"",
+            commentBody: "",
             comments: []
         }
     }
@@ -65,36 +65,36 @@ class QuoteDetails extends Component {
 
     resetState = () => {
         this.setState({
-            commentBody:""
+            commentBody: ""
         });
-      };
+    };
 
 
 
 
 
     createComment = () => {
-     const { commentBody } = this.state;
-     const comment = {commentBody, quoteId: this.props.match.params.id};
+        const { commentBody } = this.state;
+        const comment = { commentBody, quoteId: this.props.match.params.id };
 
-     axios.post('/api/comment', comment)
-     .then(response => {
-         this.setState({
-             comments: response.data
-         });
-         this.resetState();
-     });
+        axios.post('/api/comment', comment)
+            .then(response => {
+                this.setState({
+                    comments: response.data
+                });
+                this.resetState();
+            });
     };
 
 
-getComments = () => {
-  axios.get('/api/comments?quote_id='+ this.props.match.params.id)
-  .then(response => {
-      this.setState({
-          comments: response.data
-      })
-  })
-}
+    getComments = () => {
+        axios.get('/api/comments?quote_id=' + this.props.match.params.id)
+            .then(response => {
+                this.setState({
+                    comments: response.data
+                })
+            })
+    }
 
 
 
@@ -103,52 +103,59 @@ getComments = () => {
 
         const comments = this.state.comments.map(comment => {
             return (
-                <div>
-                    <p>{comment.commentbody}</p>
-                </div>
+                <section className="quote-details-commentbody-container">
+                    <div className="quote-details-comments-username">
+                        <p>Username:</p>
+                    </div>
+
+                    <div className="quote-details-commentbody-singlecomment">
+                        <p>{comment.commentbody}</p>
+                    </div>
+
+                </section>
             )
         })
         return (
             <div className="quote-details-container">
-                
-
-            <form 
-            onSubmit={e => e.preventDefault()}
-            className="modal"
-            >
-                <Link to="/Homepage">
-                    <span className="closeBtn">&times;</span>
-                </Link>
-            
-                <div className="quote-body">
-                    <h1> "{this.state.body}" </h1>
-                </div>
-                <div className="author">
-                    <p className="author"> by {this.state.author} </p>
-                </div>
 
 
-                <hr />
+                <form
+                    onSubmit={e => e.preventDefault()}
+                    className="modal"
+                >
+                    <Link to="/Homepage">
+                        <span className="closeBtn">&times;</span>
+                    </Link>
 
-                <div>
-                    {comments}
-                </div>
+                    <div className="quote-body">
+                        <h1> "{this.state.body}" </h1>
+                    </div>
+                    <div className="author">
+                        <p className="author"> by {this.state.author} </p>
+                    </div>
+
+
+                    <hr />
+
+                    <div className="quote-details-comments-section">
+                        {comments}
+                    </div>
 
 
 
-                <textarea 
-                onChange={this.handleCommentBodyChange}
-                value={this.state.commentBody}
-                className="textarea"
-                type="textarea"
-                placeholder="Add a Comment" />
-                <button 
-                onClick={this.createComment}
-                className="comment-btn"
-                >Post Comment</button>
-            </form>
-                
-            <Footer />    
+                    <textarea
+                        onChange={this.handleCommentBodyChange}
+                        value={this.state.commentBody}
+                        className="textarea"
+                        type="textarea"
+                        placeholder="Add a Comment" />
+                    <button
+                        onClick={this.createComment}
+                        className="comment-btn"
+                    >Post Comment</button>
+                </form>
+
+                <Footer />
             </div>
         )
     }
