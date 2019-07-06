@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
+import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import './QuoteSubmitForm.css';
 import axios from 'axios';
@@ -52,6 +53,9 @@ resetState = () => {
 };
 
 
+renderAlert = () => {
+    return this.state.quotebody === "" || this.state.author === "" || this.state.topic ==="" ? false : true;
+  };
 
 
 createQuote = () => {
@@ -66,17 +70,30 @@ createQuote = () => {
         topic
     }
 
-
-axios.post('/api/quote',quote)
-     .then(response => {
-         console.log(response.data)
-         this.resetState();
-         this.props.history.push('/Homepage');
-     });
+    let validation = this.renderAlert();
+    if (validation) {
+        axios.post('/api/quote',quote)
+        .then(response => {
+            console.log(response.data)
+            this.resetState();
+            this.props.history.push('/Homepage');
+        })
+        .catch(err => {
+          console.log("this is error in login user", err);
+          console.log('creating failed!')
+          if (err.response) {
+            const startIndex = err.response.data.indexOf('<pre>')
+            const endIndex = err.response.data.indexOf('</pre>')
+            toast.error(err.response.data.slice(startIndex + 5, endIndex))
+          } else {
+            toast.error('missing fields')
+          }
+        })
+      }
+      else {
+        toast.error('Missing Fields')
+      }
 };
-
-
-
 
 
 

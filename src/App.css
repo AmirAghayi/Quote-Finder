@@ -34,3 +34,12 @@
     transform: rotate(360deg);
   }
 }
+
+.Toastify__toast--error {
+  background: orange;
+  color: black;
+}
+
+.Toastify__close-button{
+  color: black;
+}

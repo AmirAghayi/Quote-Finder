@@ -110,7 +110,7 @@ class Registration extends Component {
 
     } else {
       this.setState({
-        error: swal("Error", "Fill out ALL the required fields!", "warning")
+        error: swal("Error", "Fill out all the required fields!", "warning")
       });
     }
   };
