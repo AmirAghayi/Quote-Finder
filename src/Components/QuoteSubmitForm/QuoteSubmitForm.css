@@ -122,7 +122,23 @@
     margin-bottom: 20px;
     height: 40px;
     width: 80px;
-    background-color: black;
+    background-color:rgb(124, 124, 124);
     color: white;
+    font-size: 14px;
+    border-radius: 2px;
+    border: solid;
+    border-color: gray;
+    border-style: outset;
+    border-width: 0.1em;
 }
 
+.submit-btn:hover{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 80px;
+    cursor: pointer;
+    background-color: rgb(46, 46, 46);
+    color: white;
+    transition: 0.8s;
+}
