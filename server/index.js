@@ -149,14 +149,14 @@ app.use(passport.session());
 app.post('/register', passport.authenticate('register', { failWithError: true }), (req, res) => {
     res.send({ message: 'Successfully registered', user: req.user });
 }, (err, req, res, next) => {
-      
-  }
+
+}
 );
 
 
 app.post('/login', passport.authenticate('login'), (req, res) => {
     res.send({ message: 'Successfully logged in', user: req.user });
-}, (err, req, res, next ) => {
+}, (err, req, res, next) => {
 
 }
 );
@@ -166,11 +166,6 @@ app.get('/logout', (req, res) => {
     req.logout();
     res.sendStatus(200);
 });
-
-
-
-
-
 
 
 
@@ -185,76 +180,138 @@ let {
 
 // endpoints
 
-app.get('/api/userCreatedQuotes', (req,res) => {
+app.get('/api/userCreatedQuotes', (req, res) => {
     const db = req.app.get('db');
 
     db.get_usercreatedquotes()
-    .then ( response => {
-       res.status(200).send(response); 
-    }).catch((err) => {
-         console.log('getuserceatedquotes:', err)
-    });
+        .then(response => {
+            res.status(200).send(response);
+        }).catch((err) => {
+            console.log('getuserceatedquotes:', err)
+        });
 });
 
 
 
-app.get('/api/quotes/:id', (req,res) => {
+app.get('/api/quotes/:id', (req, res) => {
     const db = req.app.get('db');
 
     db.Quotes.find(req.params.id)
-    .then ( response => {
-       res.status(200).send(response); 
-    }).catch((err) => {
-         console.log('getuserceatedquotes:', err)
-    });
+        .then(response => {
+            res.status(200).send(response);
+        }).catch((err) => {
+            console.log('getuserceatedquotes:', err)
+        });
 });
 
 
 
 
 
-app.get('/api/comments', (req,res) => {
+app.get('/api/comments', (req, res) => {
     const db = req.app.get('db');
 
     db.get_comments([req.query.quote_id])
-    .then ( response => {
-       res.status(200).send(response); 
-    }).catch((err) => {
-         console.log('getcomments:', err)
-    });
+        .then(response => {
+            res.status(200).send(response);
+        }).catch((err) => {
+            console.log('getcomments:', err)
+        });
 
 });
 
 
 
-app.post('/api/quote', (req,res) => {
-    const {quotebody, author, topic} = req.body;
+app.post('/api/quote', (req, res) => {
+    const { quotebody, author, topic } = req.body;
     const db = req.app.get('db');
 
-    db.create_quotes([quotebody,author,topic])
-    .then( response => {
-        res.status(200).send('Submitted');
-    }).catch(err => {
-        console.log('createQuote', err)
-    });
+    db.create_quotes([quotebody, author, topic])
+        .then(response => {
+            res.status(200).send('Submitted');
+        }).catch(err => {
+            console.log('createQuote', err)
+        });
 });
 
 
 
-app.post('/api/comment', (req,res) => {
-   const { commentBody, quoteId } = req.body;
-   const db = req.app.get('db');
+app.post('/api/comment', (req, res) => {
+    const { commentBody, quoteId } = req.body;
+    const db = req.app.get('db');
 
-   db.create_comment([commentBody,quoteId,req.user.id])
-   .then(response => {
-       return db.get_comments([quoteId])
-   })
-   .then(comments => {
-    res.status(200).send(comments);
-   }).catch(err => {
-        console.log('createQuote', err)
-    });
+    db.create_comment([commentBody, quoteId, req.user.id])
+        .then(response => {
+            return db.get_comments([quoteId])
+        })
+        .then(comments => {
+            res.status(200).send(comments);
+        }).catch(err => {
+            console.log('createQuote', err)
+        });
 })
+
+
+
+
+app.delete(`/api/comments/:id`, (req, res) => {
+    let { id } = req.params;
+
+    req.app.get('db').delete_comment([id])
+        .then(() => {
+            res.status(200).send({ message: 'Deleted successfully!' });
+        }).catch(err => {
+            res.status(500).send(err);
+            console.log(err);
+        });
+});
+
+
+
+app.patch('/api/comments/:id', (req, res) => {
+    let { commentBody, author } = req.params;
+
+    req.app.get('db').edit_comments([commentBody, author])
+        .then(() => {
+            res.status(200).send();
+        }).catch(err => {
+            res.status(500).send(err);
+            console.log(err);
+        });
+});
+
+
+
+app.get(`/api/quotes/:tag`, (req, res) => {
+    let { tag } = req.params;
+    console.log("search", req.params)
+    req.app
+        .get('db')
+        .get_usercreatedquotes([`%${tag}%`])
+        .then(quote => {
+            res.status(200).send(quote);
+        })
+        .catch(err => {
+            console.log({ err });
+            res.status(500).send(err);
+        });
+});
+
+
+app.get(`/api/parts/:author`, (req, res) => {
+    let { author } = req.params;
+    console.log("search", req.params)
+    req.app
+        .get('db')
+        .get_usercreatedquotes([`%${author}%`])
+        .then(quote => {
+            res.status(200).send(quote);
+        })
+        .catch(err => {
+            console.log({ err });
+            res.status(500).send(err);
+        });
+});
 
 
 

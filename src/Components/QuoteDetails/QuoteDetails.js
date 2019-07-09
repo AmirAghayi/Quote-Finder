@@ -15,26 +15,10 @@ class QuoteDetails extends Component {
             author: "",
             body: "",
             commentBody: "",
-            comments: []
+            comments: [],
+            replies: ""
         }
     }
-
-
-
-
-    // componentWillMount = () => {
-    //     axios.get(`https://favqs.com/api/quotes/${this.props.match.params.id}`, { headers: {Authorization: `Token token="7e1cd958d0d8cfebace9c3d0e5c146e9"`}})
-    //         .then(response => {
-    //             this.setState({
-    //                 author: response.data.author,
-    //                 body: response.data.body
-    //             });
-    //         });
-
-    //     this.getComments();
-
-    // }
-
 
 
     componentWillMount = () => {
@@ -51,8 +35,6 @@ class QuoteDetails extends Component {
     }
 
 
-
-
     handleCommentBodyChange = (event) => {
         this.setState({
             commentBody: event.target.value
@@ -60,17 +42,11 @@ class QuoteDetails extends Component {
     }
 
 
-
-
-
     resetState = () => {
         this.setState({
             commentBody: ""
         });
     };
-
-
-
 
 
     createComment = () => {
@@ -97,6 +73,21 @@ class QuoteDetails extends Component {
     }
 
 
+    editComment = (id) => {
+        axios.patch(`api/comments/${id}`)
+            .then(res => this.props.history.push('/Homepage'))
+    }
+
+    deleteComment = (id) => {
+        axios.delete(`/api/comments/${id}`)
+            .then(res => this.getComments());
+    }
+
+    replyComment = () => {
+
+        axios.post('/api/reply')
+    }
+
 
 
     render() {
@@ -104,6 +95,7 @@ class QuoteDetails extends Component {
         const comments = this.state.comments.map(comment => {
             return (
                 <section className="comments-section">
+                    <Navbar />
                     <span className="quote-details-commentbody-username-container">
                         <div className="quote-details-comments-username">
                             <p>Username:</p>
@@ -113,13 +105,12 @@ class QuoteDetails extends Component {
                             <p>{comment.commentbody}</p>
                         </div>
                     </span>
-                    
+
                     <span className="quote-details-comment-functions">
-                          <select>
-                              <option>Edit</option>
-                              <option>Delete</option>
-                              <option>Reply</option>
-                          </select>
+                        <select>
+                            <option onClick={this.editComment}>Edit</option>
+                            <option onChange={this.deleteComment}>Delete</option>
+                        </select>
                     </span>
 
                 </section>
