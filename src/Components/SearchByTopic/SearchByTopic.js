@@ -16,7 +16,7 @@ class SearchByTopic extends Component {
         }
     }
 
-    handleTopicSearch = () => {
+    handleTopicSearch = (event) => {
         this.setState({
             searchedQuotes: event.target.value
         })

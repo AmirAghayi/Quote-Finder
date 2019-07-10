@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Frontbody.css';
+import { Script } from 'vm';
 
 
 
@@ -26,7 +27,6 @@ class Frontbody extends Component {
           </Link>
         </section>
       </div>
-
 
 
     ))

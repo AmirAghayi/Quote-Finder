@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import axios from 'axios';
 import './SearchByAuthor.css';
 
 
@@ -15,7 +16,7 @@ class SearchByAuthor extends Component {
         }
     }
 
-    handleAuthorSearch = () => {
+    handleAuthorSearch = (event) => {
         this.setState({
             searchedQuotes: event.target.value
         })
