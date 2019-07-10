@@ -107,10 +107,10 @@ class QuoteDetails extends Component {
                     </span>
 
                     <span className="quote-details-comment-functions">
-                        <select>
-                            <option onClick={this.editComment}>Edit</option>
-                            <option onChange={this.deleteComment}>Delete</option>
-                        </select>
+                        <div>
+                            <button onClick={this.editComment}>Edit</button>
+                            <button onChange={this.deleteComment}>Delete</button>
+                        </div>
                     </span>
 
                 </section>
