@@ -1,5 +1,4 @@
 
 UPDATE "Comments"
-SET commentbody=$1,
-author=2
-WHERE id=$3
+SET commentbody=$1
+WHERE id=$2

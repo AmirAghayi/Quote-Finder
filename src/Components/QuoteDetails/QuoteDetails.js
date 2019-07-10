@@ -16,7 +16,7 @@ class QuoteDetails extends Component {
             body: "",
             commentBody: "",
             comments: [],
-            replies: ""
+            editText: "this should be the new comment"
         }
     }
 
@@ -74,21 +74,17 @@ class QuoteDetails extends Component {
 
 
     editComment = (id) => {
-        axios.patch(`api/comments/${id}`)
+        axios.patch(`/api/comments/${id}`,{commentBody:this.state.editText})
             .then(res => this.props.history.push('/Homepage'))
     }
 
     deleteComment = (id) => {
+        console.log(id)
         axios.delete(`/api/comments/${id}`)
             .then(res => this.getComments());
     }
 
-    replyComment = () => {
-
-        axios.post('/api/reply')
-    }
-
-
+    
 
     render() {
 
@@ -107,9 +103,13 @@ class QuoteDetails extends Component {
                     </span>
 
                     <span className="quote-details-comment-functions">
-                        <div>
-                            <button onClick={this.editComment}>Edit</button>
-                            <button onChange={this.deleteComment}>Delete</button>
+                        <div className="delete-edit-btns">
+                            <button  
+                            className="delete-btn"
+                            onClick={e => this.editComment(comment.id)}>Edit</button>
+                            <button 
+                            className=""
+                            onClick={e => this.deleteComment(comment.id)}>Delete</button>
                         </div>
                     </span>
 

@@ -256,6 +256,7 @@ app.post('/api/comment', (req, res) => {
 
 app.delete(`/api/comments/:id`, (req, res) => {
     let { id } = req.params;
+    console.log(id)
 
     req.app.get('db').delete_comment([id])
         .then(() => {
@@ -269,9 +270,11 @@ app.delete(`/api/comments/:id`, (req, res) => {
 
 
 app.patch('/api/comments/:id', (req, res) => {
-    let { commentBody, author } = req.params;
+    let { id } = req.params;
+    let { commentBody} = req.body;
 
-    req.app.get('db').edit_comments([commentBody, author])
+
+    req.app.get('db').edit_comments([commentBody,id])
         .then(() => {
             res.status(200).send();
         }).catch(err => {
