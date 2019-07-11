@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
+import Comment from '../Comments/Comments';
 import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -16,7 +17,6 @@ class QuoteDetails extends Component {
             body: "",
             commentBody: "",
             comments: [],
-            editText: "this should be the new comment"
         }
     }
 
@@ -73,10 +73,7 @@ class QuoteDetails extends Component {
     }
 
 
-    editComment = (id) => {
-        axios.patch(`/api/comments/${id}`,{commentBody:this.state.editText})
-            .then(res => this.props.history.push('/Homepage'))
-    }
+    
 
     deleteComment = (id) => {
         console.log(id)
@@ -90,34 +87,15 @@ class QuoteDetails extends Component {
 
         const comments = this.state.comments.map(comment => {
             return (
-                <section className="comments-section">
-                    <Navbar />
-                    <span className="quote-details-commentbody-username-container">
-                        <div className="quote-details-comments-username">
-                            <p>Username:</p>
-                        </div>
-
-                        <div className="quote-details-commentbody-singlecomment">
-                            <p>{comment.commentbody}</p>
-                        </div>
-                    </span>
-
-                    <span className="quote-details-comment-functions">
-                        <div className="delete-edit-btns">
-                            <button  
-                            className="delete-btn"
-                            onClick={e => this.editComment(comment.id)}>Edit</button>
-                            <button 
-                            className=""
-                            onClick={e => this.deleteComment(comment.id)}>Delete</button>
-                        </div>
-                    </span>
-
-                </section>
+                <Comment 
+                comment={comment}
+                deleteComment={this.deleteComment}
+                />
             )
         })
         return (
             <div className="quote-details-container">
+                    <Navbar />
 
 
                 <form

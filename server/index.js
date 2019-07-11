@@ -180,6 +180,14 @@ let {
 
 // endpoints
 
+
+app.get('/api/me', (req, res) => {
+    res.send(req.user)
+})
+
+
+
+
 app.get('/api/userCreatedQuotes', (req, res) => {
     const db = req.app.get('db');
 
@@ -275,8 +283,10 @@ app.patch('/api/comments/:id', (req, res) => {
 
 
     req.app.get('db').edit_comments([commentBody,id])
-        .then(() => {
-            res.status(200).send();
+        .then((comments) => {
+            res.status(200).send(
+                comments[0]
+            );
         }).catch(err => {
             res.status(500).send(err);
             console.log(err);
