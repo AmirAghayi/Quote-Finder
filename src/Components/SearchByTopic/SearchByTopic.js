@@ -12,18 +12,20 @@ class SearchByTopic extends Component {
         super();
 
         this.state = {
-            searchedQuotes: []
+            searchedQuotes: [],
+            topicSearchInput: ""
         }
     }
 
     handleTopicSearch = (event) => {
         this.setState({
-            searchedQuotes: event.target.value
+            topicSearchInput: event.target.value
         })
     }
 
     searchByTopic = () => {
-        axios.get(`/api/quotes/${this.state.searchedQuotes}`)
+        const searchedTopic = this.state.topicSearchInput;
+        axios.get('/api/quotes/', searchedTopic)
             .then(res =>
                 this.setState({
                     searchedQuotes: res.data
@@ -40,8 +42,12 @@ class SearchByTopic extends Component {
                 <Navbar />
                 <div className="search-container-topic">
                     <input
+                        name="topicSearchInput"
+                        value={this.state.topicSearchInput}
                         className="topic-search-input"
-                        placeholder="Topic" />
+                        placeholder="Topic"
+                        onChange={event => this.handleTopicSearch(event)}
+                    />
                     <button
                         className="search-by-topic-btn"
                         onClick={this.searchByTopic}

@@ -67,4 +67,8 @@ class SearchByAuthor extends Component {
 
 
 
+<<<<<<< HEAD
 export default SearchByAuthor;
+=======
+export default SearchByAuthor;
+>>>>>>> e31edbd157244b203ddead737af10792dd8caad6
