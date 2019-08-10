@@ -5,32 +5,34 @@ import axios from 'axios';
 import './SearchByAuthor.css';
 
 
-
 class SearchByAuthor extends Component {
 
     constructor() {
         super();
 
         this.state = {
-            searchedQuotes: []
+            searchedQuotes: [],
+            searchInput: ""
         }
     }
 
-    handleAuthorSearch = (event) => {
+    handleSearchInput = (event) => {
         this.setState({
-            searchedQuotes: event.target.value
+            searchInput: event.target.value
         })
     }
 
-    searchByTopic = () => {
-        axios.get(`/api/quotes/${this.state.searchedQuotes}`)
-            .then(res =>
+
+    handleAuthorSearch = () => {
+        const searchedAuthor = this.state.searchInput;
+        console.log(this.state.searchInput)
+        axios.get('/api/quotes/', searchedAuthor)
+            .then(response =>
                 this.setState({
-                    searchedQuotes: res.data
-                })
+                    searchedQuotes: response.data
+                }, console.log(response.data))
             );
     }
-
 
 
 
@@ -42,9 +44,16 @@ class SearchByAuthor extends Component {
                 <Navbar />
                 <div className="search-container">
                     <input
+                        name="searchInput"
+                        value={this.state.searchInput}
                         className="author-search-input"
-                        placeholder="Author's Name" />
-                    <button className="search-by-author-btn">Search By Author</button>
+                        placeholder="Author's Name"
+                        onChange={event => this.handleSearchInput(event)}
+                    />
+                    <button
+                        className="search-by-author-btn"
+                        onClick={this.handleAuthorSearch}
+                    >Search By Author</button>
                     <section>
                         {this.searchedQuotes}
                     </section>
@@ -55,7 +64,6 @@ class SearchByAuthor extends Component {
         )
     }
 }
-
 
 
 
