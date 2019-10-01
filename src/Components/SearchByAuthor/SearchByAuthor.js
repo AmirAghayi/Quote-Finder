@@ -3,6 +3,7 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
 import './SearchByAuthor.css';
+import NewComponent from '../NewComponent'
 
 
 class SearchByAuthor extends Component {
@@ -26,18 +27,21 @@ class SearchByAuthor extends Component {
     handleAuthorSearch = () => {
         const searchedAuthor = this.state.searchInput;
         console.log(this.state.searchInput)
-        axios.get('/api/quotes/', searchedAuthor)
-            .then(response =>
+        axios.get(`/api/quotes/author/${searchedAuthor}`)
+            .then(response => {
+                let data = Array.from(response.data)
+                console.log(response.data)
                 this.setState({
                     searchedQuotes: response.data
-                }, console.log(response.data))
-            );
+                }, () => console.log(data))
+            });
     }
 
 
 
 
     render() {
+        console.log(this.state)
         return (
 
             <div>
@@ -55,7 +59,7 @@ class SearchByAuthor extends Component {
                         onClick={this.handleAuthorSearch}
                     >Search By Author</button>
                     <section>
-                        {this.searchedQuotes}
+                        {this.state.searchedQuotes.map(info => <NewComponent quoteInfo={info} />)}
                     </section>
                 </div>
                 <Footer />
@@ -67,8 +71,4 @@ class SearchByAuthor extends Component {
 
 
 
-<<<<<<< HEAD
 export default SearchByAuthor;
-=======
-export default SearchByAuthor;
->>>>>>> e31edbd157244b203ddead737af10792dd8caad6

@@ -201,10 +201,9 @@ app.get('/api/userCreatedQuotes', (req, res) => {
 });
 
 
-
 app.get('/api/quotes/:id', (req, res) => {
     const db = req.app.get('db');
-
+    console.log(req.params)
     db.Quotes.find(req.params.id)
         .then(response => {
             res.status(200).send(response);
@@ -276,12 +275,17 @@ app.delete(`/api/comments/:id`, (req, res) => {
         });
 });
 
-
+// app.get('/api/books', (req, res) => {
+//     let { topic, author } = req.query 
+//     let searchObj = {}
+//     if(topic) searchObj.topic = topic
+//     if(author) searchObj.author = author
+//     db.books.find(searchObj)
+// })
 
 app.patch('/api/comments/:id', (req, res) => {
     let { id } = req.params;
     let { commentBody} = req.body;
-
 
     req.app.get('db').edit_comments([commentBody,id])
         .then((comments) => {
@@ -296,7 +300,7 @@ app.patch('/api/comments/:id', (req, res) => {
 
 
 
-app.get(`/api/quotes/:tag`, (req, res) => {
+app.get(`/api/quotes/:topic`, (req, res) => {
     let { tag } = req.params;
     console.log("search", req.params)
     req.app
@@ -312,14 +316,15 @@ app.get(`/api/quotes/:tag`, (req, res) => {
 });
 
 
-app.get(`/api/parts/:author`, (req, res) => {
-    let { author } = req.params;
+app.get('/api/quotes/author/:author', (req, res) => {
     console.log("search", req.params)
+    let { author } = req.params;
     req.app
         .get('db')
-        .get_usercreatedquotes([`%${author}%`])
+        .get_quotes_by_author(author)
         .then(quote => {
-            res.status(200).send(quote);
+            res.status(200).send(quote)
+            console.log(quote);
         })
         .catch(err => {
             console.log({ err });
