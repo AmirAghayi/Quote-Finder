@@ -285,9 +285,9 @@ app.delete(`/api/comments/:id`, (req, res) => {
 
 app.patch('/api/comments/:id', (req, res) => {
     let { id } = req.params;
-    let { commentBody} = req.body;
+    let { commentBody } = req.body;
 
-    req.app.get('db').edit_comments([commentBody,id])
+    req.app.get('db').edit_comments([commentBody, id])
         .then((comments) => {
             res.status(200).send(
                 comments[0]
@@ -300,12 +300,12 @@ app.patch('/api/comments/:id', (req, res) => {
 
 
 
-app.get(`/api/quotes/:topic`, (req, res) => {
+app.get('/api/quotes/topic/:topic', (req, res) => {
     let { tag } = req.params;
     console.log("search", req.params)
     req.app
         .get('db')
-        .get_usercreatedquotes([`%${tag}%`])
+        .get_quotes_by_topic(topic)
         .then(quote => {
             res.status(200).send(quote);
         })
@@ -336,7 +336,7 @@ app.get('/api/quotes/author/:author', (req, res) => {
 app.use(express.static(__dirname + '/../build'));
 
 
-app.get('*', (req,res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 

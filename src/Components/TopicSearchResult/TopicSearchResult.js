@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NewComponent(props) {
+function TopicSearchResult(props) {
     return (
         <div>
             <div>{props.quoteInfo.id}</div>
@@ -10,4 +10,4 @@ function NewComponent(props) {
     )
 }
 
-export default NewComponent
+export default TopicSearchResult

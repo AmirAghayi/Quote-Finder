@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
+import TopicSearchResult from '../TopicSearchResult/TopicSearchResult';
 import './SearchByTopic.css';
 
 
@@ -12,12 +13,12 @@ class SearchByTopic extends Component {
         super();
 
         this.state = {
-            searchedQuotes: [],
+            searchedQuotesByTopic: [],
             topicSearchInput: ""
         }
     }
 
-    handleTopicSearch = (event) => {
+    handleTopicSearchInput = (event) => {
         this.setState({
             topicSearchInput: event.target.value
         })
@@ -25,7 +26,7 @@ class SearchByTopic extends Component {
 
     searchByTopic = () => {
         const searchedTopic = this.state.topicSearchInput;
-        axios.get('/api/quotes/', searchedTopic)
+        axios.get(`/api/quotes/topic/${searchedTopic}`)
             .then(res =>
                 this.setState({
                     searchedQuotes: res.data
@@ -46,16 +47,16 @@ class SearchByTopic extends Component {
                         value={this.state.topicSearchInput}
                         className="topic-search-input"
                         placeholder="Topic"
-                        onChange={event => this.handleTopicSearch(event)}
+                        onChange={event => this.handleTopicSearchInput(event)}
                     />
                     <button
                         className="search-by-topic-btn"
                         onClick={this.searchByTopic}
                     >Search By Topic</button>
+                    <section>
+                        {this.state.searchedQuotesByTopic.map(info => <TopicSearchResult quoteInfo={info} />)}
+                    </section>
                 </div>
-                <section>
-                    {this.searchedQuotes}
-                </section>
                 <Footer />
             </div>
 
